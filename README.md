@@ -4,7 +4,7 @@
 
 [רכיבים רשמיים](https://github.com/gamedev-ariel/timeskip/wiki)
 
-[itch](https://eran-david.itch.io/timeskip)
+[קישור ל - itch](https://eran-david.itch.io/timeskip)
 
 [תרשים זרימה מהבנות של ריפוי בעיסוק](https://github.com/gamedev-ariel/timeskip/blob/main/gameFlow.pdf)
 
