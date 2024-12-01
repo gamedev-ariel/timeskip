@@ -3,7 +3,11 @@
 **Developed by Michal Leff-Cohen, Hila Buchbut, Shira Shalit, Eran Tzarum and Itamar Shpitzer**
 
 [רכיבים רשמיים](https://github.com/gamedev-ariel/timeskip/wiki)
-[itch](https://eran-david.itch.io/timeskip)
+
+[קישור ל - itch](https://eran-david.itch.io/timeskip)
+
+[תרשים זרימה מהבנות של ריפוי בעיסוק](https://github.com/gamedev-ariel/timeskip/blob/main/gameFlow.pdf)
+
 
 # Timeskip: A Game to Boost Focus and Attention  
 
