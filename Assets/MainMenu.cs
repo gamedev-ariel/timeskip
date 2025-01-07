@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         // טען את הסצנה הראשית של המשחק
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("icy");
     }
 
     public void ShowInstructions()
@@ -32,6 +32,12 @@ public class MainMenu : MonoBehaviour
         // טען את סצנת מפת המשחק
         SceneManager.LoadScene("515253");
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("main");
+    }
+
 
     public void QuitGame()
     {
