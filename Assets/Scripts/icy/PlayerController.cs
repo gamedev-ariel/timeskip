@@ -4,7 +4,7 @@ public class PlayerMovement_icy : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 10f;
-    private Animator animator;
+    //private Animator animator;
     private Rigidbody2D rb;
     private bool isGrounded = true;
 
@@ -15,7 +15,7 @@ public class PlayerMovement_icy : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         rb.freezeRotation = true;
@@ -46,13 +46,13 @@ public class PlayerMovement_icy : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
 
         //animation movement (does not work) (for future updates)
-        animator.SetBool("MovingLeft", moveX < 0);
-        animator.SetBool("MovingRight", moveX > 0);
+        //animator.SetBool("MovingLeft", moveX < 0);
+        //animator.SetBool("MovingRight", moveX > 0);
 
         //Jump on space
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            animator.SetBool("Jumping", true);
+            //animator.SetBool("Jumping", true);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
@@ -65,7 +65,7 @@ public class PlayerMovement_icy : MonoBehaviour
             if (Vector2.Dot(contact.normal, Vector2.up) > 0.5f)
             {
                 isGrounded = true;
-                animator.SetBool("Jumping", false);
+                //animator.SetBool("Jumping", false);
                 break;
             }
         }
