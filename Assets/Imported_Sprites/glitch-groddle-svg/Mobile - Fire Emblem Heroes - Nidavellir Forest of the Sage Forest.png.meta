@@ -1,0 +1,1368 @@
+fileFormatVersion: 2
+guid: ae90f777073993345b73d2825a55169e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7279709512713160410
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_0
+  - first:
+      213: -2241132509924747648
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_1
+  - first:
+      213: -4016613709387538976
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_2
+  - first:
+      213: 379149300800561081
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_3
+  - first:
+      213: -5415244723014520247
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_4
+  - first:
+      213: 3147544083384850223
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_5
+  - first:
+      213: -3329423080028914129
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_6
+  - first:
+      213: -8004340054995094358
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_7
+  - first:
+      213: 6811575628787495598
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_8
+  - first:
+      213: -2978638136362606985
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_9
+  - first:
+      213: 2247818793217072420
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_10
+  - first:
+      213: 4388362114310048852
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_11
+  - first:
+      213: 6397584601280174371
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_12
+  - first:
+      213: 7623314537684686708
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_13
+  - first:
+      213: -8313836405172248313
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_14
+  - first:
+      213: -1889627349798385275
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_15
+  - first:
+      213: -7599185260369027389
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_16
+  - first:
+      213: 6649114166909234424
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_17
+  - first:
+      213: 3533838972669654316
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_18
+  - first:
+      213: 482640061757292341
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_19
+  - first:
+      213: -4057847586358030016
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_20
+  - first:
+      213: 3514312850171898977
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_21
+  - first:
+      213: -2717387904936913528
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_22
+  - first:
+      213: -2927451181303512069
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_23
+  - first:
+      213: 2296157855367591628
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_24
+  - first:
+      213: -1153331772007546910
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_25
+  - first:
+      213: -7669299612893530735
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_26
+  - first:
+      213: -8912746885122309729
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_27
+  - first:
+      213: 7850866876113131141
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_28
+  - first:
+      213: -189803692732606752
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_29
+  - first:
+      213: -3586610401150019334
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_30
+  - first:
+      213: 9176235103620707324
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_31
+  - first:
+      213: 8306409074630535355
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_32
+  - first:
+      213: -6012897775768959991
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_33
+  - first:
+      213: -5743780092736765951
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_34
+  - first:
+      213: -6185962495836783794
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_35
+  - first:
+      213: -5879041208288731200
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_36
+  - first:
+      213: -6676804193011107454
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_37
+  - first:
+      213: -9195404778809656785
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_38
+  - first:
+      213: -6097825469188146592
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_39
+  - first:
+      213: -1557317416550449579
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_40
+  - first:
+      213: 4957998875631679081
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_41
+  - first:
+      213: -4466529576485602101
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_42
+  - first:
+      213: 3224257111606636352
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_43
+  - first:
+      213: -6665028484765897143
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_44
+  - first:
+      213: 2573595430556587023
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_45
+  - first:
+      213: 2676058475579119130
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_46
+  - first:
+      213: 9058517444846305084
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_47
+  - first:
+      213: -6230676831518549338
+    second: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 449
+        width: 2048
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62933ba84c649fa90800000000000000
+      internalID: -7279709512713160410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 392
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0861b533bd5e5e0e0800000000000000
+      internalID: -2241132509924747648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_2
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 394
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0edddfbbc1f1248c0800000000000000
+      internalID: -4016613709387538976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_3
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 398
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf1e0fb742034500800000000000000
+      internalID: 379149300800561081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_4
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 380
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94239e89d9f29d4b0800000000000000
+      internalID: -5415244723014520247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_5
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 382
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f27590ddaa25eab20800000000000000
+      internalID: 3147544083384850223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 342
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2eb3e749538bc1d0800000000000000
+      internalID: -3329423080028914129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_7
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 344
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa43698f02fdae090800000000000000
+      internalID: -8004340054995094358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_8
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 352
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea23692f1f3978e50800000000000000
+      internalID: 6811575628787495598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_9
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 369
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77edcaf7560c9a6d0800000000000000
+      internalID: -2978638136362606985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_10
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 331
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d9621784bd13f10800000000000000
+      internalID: 2247818793217072420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_11
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 328
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45c8b39a71896ec30800000000000000
+      internalID: 4388362114310048852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_12
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 323
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32950db8c49c8c850800000000000000
+      internalID: 6397584601280174371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_13
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 291
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47754c59e247bc960800000000000000
+      internalID: 7623314537684686708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_14
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 280
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7016ffc86d15f9c80800000000000000
+      internalID: -8313836405172248313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_15
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 299
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5898761efe1b6c5e0800000000000000
+      internalID: -1889627349798385275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_16
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 293
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ced15594454a8690800000000000000
+      internalID: -7599185260369027389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_17
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 273
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc64a53b16664c50800000000000000
+      internalID: 6649114166909234424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_18
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 279
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25f76392d7ba0130800000000000000
+      internalID: 3533838972669654316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_19
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 260
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53f7a6b349ea2b600800000000000000
+      internalID: 482640061757292341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_20
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 235
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041147e9e11afa7c0800000000000000
+      internalID: -4057847586358030016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_21
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 241
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c2618eae855c030800000000000000
+      internalID: 3514312850171898977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_22
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 208
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885da490916e94ad0800000000000000
+      internalID: -2717387904936913528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_23
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 192
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf34b1139aa9f57d0800000000000000
+      internalID: -2927451181303512069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_24
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 199
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc6786567679ddf10800000000000000
+      internalID: 2296157855367591628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_25
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 207
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef715d2dda8effe0800000000000000
+      internalID: -1153331772007546910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_26
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 221
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195b071c2ac219590800000000000000
+      internalID: -7669299612893530735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_27
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 187
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91c0530eef8f4480800000000000000
+      internalID: -8912746885122309729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_28
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 191
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5869a9104d1e3fc60800000000000000
+      internalID: 7850866876113131141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_29
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 148
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e69d9d0c8ead5df0800000000000000
+      internalID: -189803692732606752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_30
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 139
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af85bb3c7dcc93ec0800000000000000
+      internalID: -3586610401150019334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_31
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 142
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf338ce7539885f70800000000000000
+      internalID: 9176235103620707324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_32
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 149
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb82f6c4b0b464370800000000000000
+      internalID: 8306409074630535355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_33
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 142
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9040e84a455ed8ca0800000000000000
+      internalID: -6012897775768959991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_34
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 148
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1000770007ef940b0800000000000000
+      internalID: -5743780092736765951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_35
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 112
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4b72c972eb072aa0800000000000000
+      internalID: -6185962495836783794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_36
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 87
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf11186b23796ea0800000000000000
+      internalID: -5879041208288731200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_37
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 115
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289fbb036f93753a0800000000000000
+      internalID: -6676804193011107454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_38
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 71
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2afe11b21c536080800000000000000
+      internalID: -9195404778809656785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_39
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 60
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06af5be1b0c206ba0800000000000000
+      internalID: -6097825469188146592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_40
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 57
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e3bf78f0c436ae0800000000000000
+      internalID: -1557317416550449579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_41
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 82
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 966ffc275b95ec440800000000000000
+      internalID: 4957998875631679081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_42
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 0
+        width: 517
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bccbccec303b302c0800000000000000
+      internalID: -4466529576485602101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_43
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 0
+        width: 188
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f27d992ccdebc20800000000000000
+      internalID: 3224257111606636352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_44
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 0
+        width: 332
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e2babe7ef0183a0800000000000000
+      internalID: -6665028484765897143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_45
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 37
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04d4e9986f37b320800000000000000
+      internalID: 2573595430556587023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_46
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 36
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1611135105432520800000000000000
+      internalID: 2676058475579119130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_47
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 29
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3f3ebb3f9156bd70800000000000000
+      internalID: 9058517444846305084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_48
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 32
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa941bee603889a0800000000000000
+      internalID: -6230676831518549338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
