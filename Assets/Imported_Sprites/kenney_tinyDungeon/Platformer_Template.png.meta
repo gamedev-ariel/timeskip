@@ -385,7 +385,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Platformer_Template_0: -7233843313032034967
+      Platformer_Template_1: -4785028803307510788
+      Platformer_Template_2: 4493925881784439096
+      Platformer_Template_3: -2065379673265700707
+      Platformer_Template_4: 2092362086671164634
+      Platformer_Template_5: -3645079238615099847
+      Platformer_Template_6: 3499351596361343193
+      Platformer_Template_7: -6423374846744669404
+      Platformer_Template_8: -1718500824735191366
+      Platformer_Template_9: -8183986363309243681
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

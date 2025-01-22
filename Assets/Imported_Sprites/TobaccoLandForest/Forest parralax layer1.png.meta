@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Forest parralax layer1_0: -9166648768983770015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
