@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bubbles Rising_0: 7464165282448880277
+      Bubbles Rising_1: -3353685734461780531
+      Bubbles Rising_2: -6081577290923639052
+      Bubbles Rising_3: 6859417421349804563
+      Bubbles Rising_4: -3393634205206269081
+      Bubbles Rising_5: 6063974081150919127
+      Bubbles Rising_6: -8131013181840517001
+      Bubbles Rising_7: 7234066238320529851
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

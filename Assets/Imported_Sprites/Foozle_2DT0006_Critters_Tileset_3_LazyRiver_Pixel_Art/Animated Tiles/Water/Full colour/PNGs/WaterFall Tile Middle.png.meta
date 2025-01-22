@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WaterFall Tile Middle_0: -7816129087853318747
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

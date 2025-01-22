@@ -334,7 +334,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cattail 01_0: -6990643417982108018
+      Cattail 01_1: -3361907675568303397
+      Cattail 01_2: 5965597351217035535
+      Cattail 01_3: -5227124735332972328
+      Cattail 01_4: 8654181719127186970
+      Cattail 01_5: -6508588228619867428
+      Cattail 01_6: 5278246477503900564
+      Cattail 01_7: 7949932867416134459
+      Cattail 01_8: 520210954631567758
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
