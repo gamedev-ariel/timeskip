@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc32109cfd52a1f45a83cee83f808894
+guid: 46a017a5fc8007a4f8953f38a9393cac
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -258,8 +258,8 @@ TextureImporter:
       name: Terrain_and_Props_3
       rect:
         serializedVersion: 2
-        x: 196
-        y: 423
+        x: 195
+        y: 418
         width: 105
         height: 113
       alignment: 0
@@ -302,10 +302,10 @@ TextureImporter:
       name: Terrain_and_Props_5
       rect:
         serializedVersion: 2
-        x: 151
-        y: 385
-        width: 2
-        height: 14
+        x: 81
+        y: 371
+        width: 78
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,6 +672,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Terrain_and_Props 1_0
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 329
+        width: 3
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b202e903f484744f891875aa0a79ce3
+      internalID: -697099941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -686,6 +708,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Terrain_and_Props 1_0: -697099941
       Terrain_and_Props_0: 7524805609583646632
       Terrain_and_Props_1: -778642162071068864
       Terrain_and_Props_10: 214759914939099798
