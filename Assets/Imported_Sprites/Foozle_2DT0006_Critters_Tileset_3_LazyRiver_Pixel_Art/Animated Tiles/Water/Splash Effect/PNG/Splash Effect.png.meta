@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Splash Effect_0: 131273778714213755
+      Splash Effect_1: -8075118605258246365
+      Splash Effect_2: 5903115992606673880
+      Splash Effect_3: 1974629620249815246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

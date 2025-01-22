@@ -559,7 +559,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lilypad 01_0: 6349129775116881921
+      Lilypad 01_1: 2998447448029680307
+      Lilypad 01_10: -7977486116364451634
+      Lilypad 01_11: 3022123304410438397
+      Lilypad 01_12: -4516553372820543937
+      Lilypad 01_13: -3346015198663142825
+      Lilypad 01_14: 7039683827355657196
+      Lilypad 01_15: -146974814910089897
+      Lilypad 01_16: -320498354609229334
+      Lilypad 01_17: 7767431960391496131
+      Lilypad 01_2: -5685813260017376465
+      Lilypad 01_3: 7505339455374929350
+      Lilypad 01_4: 4481680674752592728
+      Lilypad 01_5: 993181905531649246
+      Lilypad 01_6: -3875312801443799547
+      Lilypad 01_7: -6613100091330400088
+      Lilypad 01_8: 1853398533584636000
+      Lilypad 01_9: 4905193371371383953
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
