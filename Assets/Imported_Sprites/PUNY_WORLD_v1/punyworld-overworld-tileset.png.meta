@@ -960,7 +960,40 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      punyworld-overworld-tileset_0: -2936812157756086987
+      punyworld-overworld-tileset_1: 2313278028701488810
+      punyworld-overworld-tileset_10: 4514862980498190093
+      punyworld-overworld-tileset_11: -2185020530834260083
+      punyworld-overworld-tileset_12: -5929902050990664889
+      punyworld-overworld-tileset_13: 5270496722690507890
+      punyworld-overworld-tileset_14: -90611333369374639
+      punyworld-overworld-tileset_15: 3600786152494843308
+      punyworld-overworld-tileset_16: -7837799151746164180
+      punyworld-overworld-tileset_17: -5305572277966667491
+      punyworld-overworld-tileset_18: 1509359456371806168
+      punyworld-overworld-tileset_19: -3448887729838811329
+      punyworld-overworld-tileset_2: 8783211479544010488
+      punyworld-overworld-tileset_20: -1160479733478164140
+      punyworld-overworld-tileset_21: -8194545290176133825
+      punyworld-overworld-tileset_22: -8272125681096778712
+      punyworld-overworld-tileset_23: -1442737465060348579
+      punyworld-overworld-tileset_24: 3579714133741828167
+      punyworld-overworld-tileset_25: 6614691278404932023
+      punyworld-overworld-tileset_26: -4859788222585461065
+      punyworld-overworld-tileset_27: 6116716384031404787
+      punyworld-overworld-tileset_28: 9148712932217380277
+      punyworld-overworld-tileset_29: 3462340933819930205
+      punyworld-overworld-tileset_3: -2745756333320004175
+      punyworld-overworld-tileset_30: 4898157832241231767
+      punyworld-overworld-tileset_31: 4658605441078864421
+      punyworld-overworld-tileset_32: 1887297476542641701
+      punyworld-overworld-tileset_4: 4449115006935482516
+      punyworld-overworld-tileset_5: 1573795116900017078
+      punyworld-overworld-tileset_6: 340865343723981369
+      punyworld-overworld-tileset_7: -276281134952907864
+      punyworld-overworld-tileset_8: -8724251955666452531
+      punyworld-overworld-tileset_9: -89065700305484890
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
