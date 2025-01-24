@@ -9,8 +9,9 @@ public class GameController : MonoBehaviour
     [Header("Game Settings")]
     public float startDelay = 5f;
     public float gameDuration = 90f; // 1.5 minutes
-    public float scrollSpeed = 2f; // Centralized scrollSpeed
-
+    public float minScrollSpeed = 1f;
+    public float maxScrollSpeed = 2.5f;
+    public float currentScrollSpeed;
     private float timer;
     private bool gameStarted = false;
     private bool gameEnded = false;
@@ -56,6 +57,24 @@ public class GameController : MonoBehaviour
             // Game timer
             timer += Time.deltaTime;
             uiManager.UpdateGameTimer(gameDuration - timer);
+
+            // Update speed based on elapsed time
+            float normalizedTime = timer / gameDuration;
+            currentScrollSpeed = Mathf.Lerp(minScrollSpeed, maxScrollSpeed, normalizedTime);
+            
+            // // Update components with new speed
+            // if (backgroundManager != null)
+            // {
+            //     backgroundManager.UpdateSpeed(currentScrollSpeed);
+            // }
+
+            // // Update fish spawners with new speed
+            // FishSpawner[] fishSpawners = FindObjectsOfType<FishSpawner>();
+            // foreach (FishSpawner spawner in fishSpawners)
+            // {
+            //     spawner.UpdateSpeed(currentScrollSpeed);
+            // }
+
             if (timer >= gameDuration)
             {
                 EndGame();
@@ -66,12 +85,13 @@ public class GameController : MonoBehaviour
     void StartGame()
     {
         gameStarted = true;
+        currentScrollSpeed = minScrollSpeed;
         uiManager.HideCountdown();
 
         // Start background spawning
         if (backgroundManager != null)
         {
-            backgroundManager.StartSpawning(scrollSpeed);
+            backgroundManager.StartSpawning(currentScrollSpeed);
             Debug.Log("GameController: Started background spawning.");
         }
         else

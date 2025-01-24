@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
-    [Header("Horizontal Movement")]
-    public float scrollSpeed = 2f;     // Moves fish to the left
-
     [Header("Vertical Movement")]
     public float initialUpSpeed = 5f;  // Initial upward "shoot" velocity
     public float gravity = 9.81f;      // Gravity to simulate downward acceleration
@@ -34,9 +31,10 @@ public class FishMovement : MonoBehaviour
 
     void Update()
     {
-        // 1. Move left based on scrollSpeed
-        transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime, Space.World);
+        // 1. Move left based on GameController's scrollSpeed
+        transform.Translate(Vector3.left * GameController.Instance.currentScrollSpeed * Time.deltaTime, Space.World);
 
+        // ...existing code...
         // 2. Apply gravity to vertical velocity
         verticalVelocity -= gravity * Time.deltaTime;
 
