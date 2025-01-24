@@ -16,7 +16,6 @@ public class BackgroundManager : MonoBehaviour
     public float positionY = 0f; // Y position to spawn new backgrounds
     public float positionZ = 0f; // Z position to spawn new backgrounds
 
-    private float scrollSpeed = 2f; // Class-level scrollSpeed 
     private List<GameObject> activeBackgrounds = new List<GameObject>();
 
     private Camera mainCamera;
@@ -31,7 +30,7 @@ void Start()
     {
         float xPos = i * backgroundWidth; 
         SpawnBackground((i == 0) ? backgroundStartPrefab : backgroundMiddlePrefab,
-            new Vector3(xPos, positionY, positionZ), scrollSpeed);
+            new Vector3(xPos, positionY, positionZ));
     }
 }
 
@@ -77,13 +76,12 @@ void Start()
         cameraRightEdge = mainCamera.transform.position.x + (screenWidth / 2);
     }
 
-void SpawnBackground(GameObject prefab, Vector3 position, float speed)
+void SpawnBackground(GameObject prefab, Vector3 position)
 {
     GameObject newBg = Instantiate(prefab, position, Quaternion.identity, this.transform);
     BackgroundScroller scroller = newBg.GetComponent<BackgroundScroller>();
     if (scroller != null)
     {
-        scroller.SetScrollSpeed(speed);
         scroller.SetBackgroundManager(this);
         scroller.StartScrolling();
     }
@@ -110,7 +108,7 @@ void SpawnNextBackground()
         positionY,
         positionZ
     );
-    SpawnBackground(prefabToSpawn, nextPos, scrollSpeed);
+    SpawnBackground(prefabToSpawn, nextPos);
 }
 
     // This method is called by BackgroundScroller when a background reaches the end
@@ -122,9 +120,7 @@ void SpawnNextBackground()
 
     public void StartSpawning(float speed)
     {
-        scrollSpeed = speed; // Assign the passed speed to the class variable
-        Debug.Log($"BackgroundManager: Starting spawning with scrollSpeed = {scrollSpeed}.");
-        // Optionally, spawn additional backgrounds if needed
+        // Implement starting logic here if necessary
     }
 
     // Optional: Implement if you have ongoing spawning mechanisms
