@@ -1,3 +1,29 @@
+//using UnityEngine;
+
+//public class CameraZoomOnStart : MonoBehaviour
+//{
+//    public Transform player; // השחקן שהמצלמה מתמקדת בו
+//    public float zoomSize = 3.5f; // גודל הזום הרצוי
+//    private Camera cam;
+//    private Vector3 initialPosition;
+
+//    void Start()
+//    {
+//        cam = GetComponent<Camera>();
+
+//        // שמירת מיקום התחלתי של המצלמה
+//        initialPosition = transform.position;
+
+//        // שינוי גודל הזום של המצלמה
+//        cam.orthographicSize = zoomSize;
+
+//        // קיבוע המצלמה לנקודת המוצא של השחקן
+//        transform.position = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z);
+//    }
+//}
+
+
+
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
