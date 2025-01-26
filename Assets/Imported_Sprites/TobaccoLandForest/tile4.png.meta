@@ -153,10 +153,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
-      - - {x: -31.5, y: -48}
-        - {x: 32.5, y: -48}
+      - - {x: -16, y: -16.5}
+        - {x: 15, y: -16.5}
         - {x: 16, y: 16}
-        - {x: -31.5, y: 48}
+        - {x: -16, y: 16.5}
       physicsShape: []
       tessellationDetail: 0
       bones: []
