@@ -9,7 +9,7 @@ public class BackgroundManager : MonoBehaviour
     public GameObject backgroundEndPrefab;
 
     [Header("Spawning Settings")]
-    public int numberOfMiddleBackgrounds = 7;
+    public int numberOfMiddleBackgrounds = 5;
     private int middleBackgroundsSpawned = 0;
 
     public float backgroundWidth = 30f; // Width of each background (adjust based on your sprite)
@@ -56,6 +56,11 @@ void Start()
         for (int i = activeBackgrounds.Count - 1; i >= 0; i--)
         {
             GameObject bg = activeBackgrounds[i];
+            if (bg == null)
+            {
+                activeBackgrounds.RemoveAt(i);
+                continue;
+            }
             float bgLeftEdge = bg.transform.position.x - (backgroundWidth / 2);
             float cameraLeftEdge = mainCamera.transform.position.x - (mainCamera.orthographicSize * mainCamera.aspect);
 

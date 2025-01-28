@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
     [Header("Game Settings")]
     public float startDelay = 5f;
     public float gameDuration = 90f; // 1.5 minutes
-    public float minScrollSpeed = 1f;
-    public float maxScrollSpeed = 2.5f;
+    public float minScrollSpeed = 0.5f;
+    public float maxScrollSpeed = 2f;
     public float currentScrollSpeed;
     private float timer;
     private bool gameStarted = false;
@@ -34,11 +34,21 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void Start()
+void Start()
+{
+    timer = 0f;
+    // Find UIManager in scene if reference is lost
+    if (uiManager == null)
     {
-        timer = 0f;
-        uiManager.ShowStartCountdown(startDelay);
+        uiManager = FindObjectOfType<UIManager>();
+        if (uiManager == null)
+        {
+            Debug.LogError("UIManager not found in scene!");
+            return;
+        }
     }
+    uiManager.ShowStartCountdown(startDelay);
+}
 
     void Update()
     {
@@ -127,12 +137,26 @@ public class GameController : MonoBehaviour
             backgroundManager.StopSpawning(); // Implement if necessary
             Debug.Log("GameController: Stopped BackgroundManager spawning.");
         }
+            // Find and destroy the player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Destroy(player);
+            Debug.Log("GameController: Player destroyed.");
+        }
+        else
+        {
+            Debug.LogWarning("GameController: Player not found during EndGame.");
+        }
 
         // Optionally, display end game UI
     }
 
     public void RestartGame()
     {
+        // Destroy the persistent GameController before loading new scene
+        Destroy(gameObject);
+        Instance = null;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("GameController: Game restarted.");
     }
