@@ -3,6 +3,33 @@ using UnityEngine;
 public class CollisionHandler : MonoBehaviour
 {
     public UIManager uiManager;
+    private Camera mainCamera;
+    
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
+    void Update()
+    {
+        CheckOutOfBounds();
+    }
+
+    void CheckOutOfBounds()
+    {
+        Vector3 viewPos = mainCamera.WorldToViewportPoint(transform.position);
+        
+        // Check if player is out of camera view (viewport coordinates are normalized 0 to 1)
+        if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
+        {
+            uiManager.ShowTryAgain();
+            if (GameController.Instance != null)
+            {
+                GameController.Instance.EndGame();
+                Destroy(gameObject);
+            }
+        }   
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {

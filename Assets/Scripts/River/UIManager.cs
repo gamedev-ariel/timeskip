@@ -57,6 +57,11 @@ public class UIManager : MonoBehaviour
 
     void RestartGame()
     {
+        // Disable button and remove listener to prevent multiple clicks
+        restartButton.interactable = false;
+        restartButton.onClick.RemoveAllListeners();
+        
+        // Call restart on GameController
         FindObjectOfType<GameController>().RestartGame();
     }
 }
