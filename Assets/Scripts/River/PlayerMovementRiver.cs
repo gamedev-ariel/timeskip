@@ -6,7 +6,7 @@ public class PlayerMovementRiver : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 10f;
     private Rigidbody2D rb;
-    private bool isOnMushroom = false; // ????? ????? ?? ????? ?? ??????
+    private bool isOnMushroom = false; 
 
     void Start()
     {
@@ -17,12 +17,12 @@ public class PlayerMovementRiver : MonoBehaviour
 
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal"); // ????? ?????/?????
+        float moveX = Input.GetAxisRaw("Horizontal"); 
         rb.linearVelocity = new Vector2(moveX * speed, rb.linearVelocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // ?????
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); 
         }
     }
 }
