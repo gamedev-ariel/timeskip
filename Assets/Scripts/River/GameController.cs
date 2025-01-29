@@ -160,4 +160,22 @@ void Start()
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("GameController: Game restarted.");
     }
+
+    public void QuitGame()
+    {
+        // Destroy the persistent GameController before quitting
+        Destroy(gameObject);
+        Instance = null;
+        Application.Quit();
+        Debug.Log("GameController: Game quit.");
+    }
+
+    public void GoToMainMenu()
+    {
+        // Destroy the persistent GameController before loading new scene
+        Destroy(gameObject);
+        Instance = null;
+        SceneManager.LoadScene("MainMenu");
+        Debug.Log("GameController: Main menu loaded.");
+    }
 }
