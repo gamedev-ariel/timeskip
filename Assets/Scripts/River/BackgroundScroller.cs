@@ -36,7 +36,7 @@ public class BackgroundScroller : MonoBehaviour
         // Uncomment the following line if you need to see position updates
         // Debug.Log($"{gameObject.name}: Position X = {transform.position.x}");
         // Check if the background has moved past the left edge (e.g., x <= -15f)
-        if (transform.position.x <= -15f)
+        if (transform.position.x <= -50f)
         {
             // Notify the BackgroundManager to spawn the next background
             if (backgroundManager != null)

@@ -61,7 +61,7 @@ void Start()
                 activeBackgrounds.RemoveAt(i);
                 continue;
             }
-            float bgLeftEdge = bg.transform.position.x - (backgroundWidth / 2);
+            float bgLeftEdge = bg.transform.position.x + 10*(backgroundWidth / 2);
             float cameraLeftEdge = mainCamera.transform.position.x - (mainCamera.orthographicSize * mainCamera.aspect);
 
             if (bgLeftEdge < cameraLeftEdge - (backgroundWidth / 2))
