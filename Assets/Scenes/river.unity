@@ -782,6 +782,11 @@ MonoBehaviour:
   gameTimerText: {fileID: 859268895}
   messageText: {fileID: 725781939}
   restartButton: {fileID: 932604117}
+  isForest: 0
+  darkScrews: []
+  normalScrews: []
+  screwsCollected: 0
+  totalScrews: 5
 --- !u!1 &1605354477
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +952,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.8
   m_Material: {fileID: 6200000, guid: 4aec89026ea1e55479efdc7ec64d2951, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -972,7 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpForce: 7
+  jumpForce: 3
 --- !u!114 &1605354485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,6 +991,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1003422892}
+  fishCollisionSound: {fileID: 0}
+  victorySound: {fileID: 0}
+  jumpSound: {fileID: 0}
+  screwCollectSound: {fileID: 0}
 --- !u!1 &1610511720
 GameObject:
   m_ObjectHideFlags: 0
