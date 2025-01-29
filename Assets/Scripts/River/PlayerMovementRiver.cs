@@ -22,7 +22,12 @@ public class PlayerMovementRiver : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); 
+            Jump();
         }
     }
+    public void Jump()  
+    {
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); 
+    }
+
 }

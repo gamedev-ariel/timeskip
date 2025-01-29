@@ -1,13 +1,36 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
     public UIManager uiManager;
     private Camera mainCamera;
+    private AudioSource audioSource;
+
+    [SerializeField] private AudioClip fishCollisionSound;
+    [SerializeField] private AudioClip victorySound;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip screwCollectSound;
     
     void Start()
     {
         mainCamera = Camera.main;
+        audioSource = GetComponent<AudioSource>();
+        // Add AudioSource component if it doesn't exist
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
+
+    private bool PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+            return true;
+        }
+        return false;
     }
 
     void Update()
@@ -35,7 +58,7 @@ public class CollisionHandler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Fish"))
         {
-            // Player touched a fish
+            PlaySound(fishCollisionSound);
             uiManager.ShowTryAgain();
             if (GameController.Instance != null)
             {
@@ -48,7 +71,7 @@ public class CollisionHandler : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("RiverBankEnd"))
         {
-            // Player reached the end river bank
+            PlaySound(victorySound);
             uiManager.ShowWellDone();
             if (GameController.Instance != null)
             {
@@ -57,6 +80,29 @@ public class CollisionHandler : MonoBehaviour
             else
             {
                 Debug.LogError("GameController instance not found.");
+            }
+        }
+        else if (collision.gameObject.CompareTag("Mushroom"))
+        {
+            PlaySound(jumpSound);
+            GetComponent<PlayerMovementRiver>().Jump();
+        }
+        else if (collision.gameObject.CompareTag("Screw"))
+        {
+            PlaySound(screwCollectSound);
+            Destroy(collision.gameObject);
+            uiManager.CollectScrew();
+            if ((uiManager.screwsCollected == uiManager.totalScrews) && (PlaySound(victorySound) == true))
+            {
+                uiManager.ShowWellDone();
+                if (GameController.Instance != null)
+                {
+                    GameController.Instance.EndGame();
+                }
+                else
+                {
+                    Debug.LogError("GameController instance not found.");
+                }
             }
         }
     }
