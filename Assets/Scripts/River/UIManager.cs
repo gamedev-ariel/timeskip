@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using UnityEngine.SceneManagement; // Add this line
 public class UIManager : MonoBehaviour
 {
     public Text countdownText;
     public Text gameTimerText;
     public Text messageText;
     public Button restartButton;
+    public Button mainMenuButton;
     public bool isForest = false;
         // Add references for screws
     public List<GameObject> darkScrews = new List<GameObject>();
@@ -21,7 +22,7 @@ public class UIManager : MonoBehaviour
         // Initially hide message and restart button
         messageText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
-        
+        mainMenuButton.gameObject.SetActive(false);
         // Debug check for screw lists
         Debug.Log($"Dark screws count: {darkScrews.Count}, Normal screws count: {normalScrews.Count}");
         
@@ -87,7 +88,9 @@ public class UIManager : MonoBehaviour
         messageText.gameObject.SetActive(true);
         messageText.text = "Well Done!";
         restartButton.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(true); // Add this line
         restartButton.onClick.AddListener(RestartGame);
+        mainMenuButton.onClick.AddListener(GoToMainMenu); // Add this line
     }
 
     public void ShowTryAgain()
@@ -95,7 +98,9 @@ public class UIManager : MonoBehaviour
         messageText.gameObject.SetActive(true);
         messageText.text = "Try Again!";
         restartButton.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(true); // Add this line
         restartButton.onClick.AddListener(RestartGame);
+        mainMenuButton.onClick.AddListener(GoToMainMenu); // Add this line
     }
 
     void RestartGame()
@@ -106,5 +111,11 @@ public class UIManager : MonoBehaviour
         
         // Call restart on GameController
         FindObjectOfType<GameController>().RestartGame();
+    }
+
+    void GoToMainMenu()
+    {
+        // Load the main menu scene
+        FindAnyObjectByType<GameController>().GoToMainMenu();
     }
 }
