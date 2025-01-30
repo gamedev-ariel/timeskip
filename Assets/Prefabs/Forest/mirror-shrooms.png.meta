@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 762f370178e79ea4681be0d30fdb274a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6682606930072392940
+    second: mirror-shrooms_0
+  - first:
+      213: -1988944776993878664
+    second: mirror-shrooms_1
+  - first:
+      213: 842062357361519496
+    second: mirror-shrooms_2
+  - first:
+      213: -1230067739173352849
+    second: mirror-shrooms_3
+  - first:
+      213: 5599987609829073720
+    second: mirror-shrooms_4
+  - first:
+      213: -949708916269377251
+    second: mirror-shrooms_5
+  - first:
+      213: 1256454490035730215
+    second: mirror-shrooms_6
+  - first:
+      213: 1514174879235662681
+    second: mirror-shrooms_7
+  - first:
+      213: 8693299721936782037
+    second: mirror-shrooms_8
+  - first:
+      213: 6472938633816077353
+    second: mirror-shrooms_9
+  - first:
+      213: 8045937362444506124
+    second: mirror-shrooms_10
+  - first:
+      213: 3958725566205921438
+    second: mirror-shrooms_11
+  - first:
+      213: -5933222500907181671
+    second: mirror-shrooms_12
+  - first:
+      213: 292518718816878243
+    second: mirror-shrooms_13
+  - first:
+      213: 2035802738167799248
+    second: mirror-shrooms_14
+  - first:
+      213: -2526882221236219158
+    second: mirror-shrooms_15
+  - first:
+      213: 4641014225484088124
+    second: mirror-shrooms_16
+  - first:
+      213: -2772594481977193376
+    second: mirror-shrooms_17
+  - first:
+      213: -7043241388256345305
+    second: mirror-shrooms_18
+  - first:
+      213: -6166104694425515501
+    second: mirror-shrooms_19
+  - first:
+      213: 2700908258796712768
+    second: mirror-shrooms_20
+  - first:
+      213: -2523720693663802658
+    second: mirror-shrooms_21
+  - first:
+      213: 2109187374122559098
+    second: mirror-shrooms_22
+  - first:
+      213: -5315027812057805820
+    second: mirror-shrooms_23
+  - first:
+      213: -5576298820774361422
+    second: mirror-shrooms_24
+  - first:
+      213: 315044719423928439
+    second: mirror-shrooms_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mirror-shrooms_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 181
+        width: 50
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ba87f276c9243a0800000000000000
+      internalID: -6682606930072392940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 180
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87d49616349d564e0800000000000000
+      internalID: -1988944776993878664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_2
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 192
+        width: 35
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88be249a04b9fab00800000000000000
+      internalID: 842062357361519496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_3
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 123
+        width: 31
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a87ec88ebedeee0800000000000000
+      internalID: -1230067739173352849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_4
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 161
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8336376af0727bd40800000000000000
+      internalID: 5599987609829073720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_5
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 181
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d191ebdb5c4f1d2f0800000000000000
+      internalID: -949708916269377251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_6
+      rect:
+        serializedVersion: 2
+        x: 1241
+        y: 180
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7273603a3b2df6110800000000000000
+      internalID: 1256454490035730215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 131
+        width: 61
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95369acb70e630510800000000000000
+      internalID: 1514174879235662681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_8
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 131
+        width: 68
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d24b0cb90ec4a870800000000000000
+      internalID: 8693299721936782037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_9
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 151
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9247281746f74d950800000000000000
+      internalID: 6472938633816077353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_10
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 139
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c045c85e669e8af60800000000000000
+      internalID: 8045937362444506124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_11
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 157
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9806f0ade730f630800000000000000
+      internalID: 3958725566205921438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_12
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 131
+        width: 62
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 999921c2295f8ada0800000000000000
+      internalID: -5933222500907181671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_13
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 131
+        width: 68
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae7b35993c3f0400800000000000000
+      internalID: 292518718816878243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 113
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd5241edcf904c10800000000000000
+      internalID: 2035802738167799248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_15
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 107
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae217fdf106beecd0800000000000000
+      internalID: -2526882221236219158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_16
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 124
+        width: 37
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c33838359d1386040800000000000000
+      internalID: 4641014225484088124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_17
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 119
+        width: 46
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c8a8b2204c589d0800000000000000
+      internalID: -2772594481977193376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_18
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 113
+        width: 28
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 723c6a92641614e90800000000000000
+      internalID: -7043241388256345305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_19
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 107
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a06e823789d6aa0800000000000000
+      internalID: -6166104694425515501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_20
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 93
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0433f7850cd8b7520800000000000000
+      internalID: 2700908258796712768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_21
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 93
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edadddd7661f9fcd0800000000000000
+      internalID: -2523720693663802658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_22
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 92
+        width: 48
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a766057edb6554d10800000000000000
+      internalID: 2109187374122559098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_23
+      rect:
+        serializedVersion: 2
+        x: 1281
+        y: 93
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c09fa7d5a3d36b0800000000000000
+      internalID: -5315027812057805820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_24
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 74
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6805a54c10d92b0800000000000000
+      internalID: -5576298820774361422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mirror-shrooms_25
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 74
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77830adc0834f5400800000000000000
+      internalID: 315044719423928439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mirror-shrooms_0: -6682606930072392940
+      mirror-shrooms_1: -1988944776993878664
+      mirror-shrooms_10: 8045937362444506124
+      mirror-shrooms_11: 3958725566205921438
+      mirror-shrooms_12: -5933222500907181671
+      mirror-shrooms_13: 292518718816878243
+      mirror-shrooms_14: 2035802738167799248
+      mirror-shrooms_15: -2526882221236219158
+      mirror-shrooms_16: 4641014225484088124
+      mirror-shrooms_17: -2772594481977193376
+      mirror-shrooms_18: -7043241388256345305
+      mirror-shrooms_19: -6166104694425515501
+      mirror-shrooms_2: 842062357361519496
+      mirror-shrooms_20: 2700908258796712768
+      mirror-shrooms_21: -2523720693663802658
+      mirror-shrooms_22: 2109187374122559098
+      mirror-shrooms_23: -5315027812057805820
+      mirror-shrooms_24: -5576298820774361422
+      mirror-shrooms_25: 315044719423928439
+      mirror-shrooms_3: -1230067739173352849
+      mirror-shrooms_4: 5599987609829073720
+      mirror-shrooms_5: -949708916269377251
+      mirror-shrooms_6: 1256454490035730215
+      mirror-shrooms_7: 1514174879235662681
+      mirror-shrooms_8: 8693299721936782037
+      mirror-shrooms_9: 6472938633816077353
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
