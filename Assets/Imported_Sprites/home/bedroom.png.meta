@@ -129,9 +129,9 @@ TextureImporter:
       name: PC Computer - Undertale - Home and New Home_0
       rect:
         serializedVersion: 2
-        x: 1096
+        x: 1098
         y: 209
-        width: 221
+        width: 219
         height: 199
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
