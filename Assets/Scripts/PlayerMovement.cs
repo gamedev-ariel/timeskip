@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Sprite[] ACharDown; // 4 sprites for Down animation
-    public Sprite[] ACharUp;   // 4 sprites for Up animation
-    public Sprite[] ACharLeft; // 4 sprites for Left animation
-    public Sprite[] ACharRight; // 4 sprites for Right animation
+    public Sprite[] ACharIdle;  // Idle sprites
+    public Sprite[] ACharLeft;  // Left movement sprites
+    public Sprite[] ACharRight; // Right movement sprites
 
-    public float moveSpeed = 5f; // Movement speed
+    public float moveSpeed = 5f;    // Horizontal movement speed
+    public float jumpForce = 10f;  // Force applied for jumping
+    public float animationSpeed = 0.2f; // Time between animation frames
 
     private SpriteRenderer spriteRenderer;
     private Vector2 moveInput;
@@ -15,19 +16,32 @@ public class PlayerMovement : MonoBehaviour
     private int animationIndex = 0;
     private float animationTimer = 0f;
     private Rigidbody2D rb;
-    public float animationSpeed = 0.2f; // Time between frames
+
+    private bool isGrounded = true; // Check if the player is on the ground
+    public Transform groundCheck;  // Position to check if grounded
+    public float groundCheckRadius = 0.2f; // Radius for ground check
+    public LayerMask groundLayer;  // Layer considered as ground
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        currentDirectionSprites = ACharDown; // Default direction
+        currentDirectionSprites = ACharIdle; // Default idle animation
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        // Get movement input
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        // Get horizontal input
+        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
+
+        // Check if grounded
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        // Jump input
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
 
         // Determine direction and set current sprites
         if (moveInput.x > 0)
@@ -38,23 +52,19 @@ public class PlayerMovement : MonoBehaviour
         {
             currentDirectionSprites = ACharLeft;
         }
-        else if (moveInput.y > 0)
+        else
         {
-            currentDirectionSprites = ACharUp;
-        }
-        else if (moveInput.y < 0)
-        {
-            currentDirectionSprites = ACharDown;
+            currentDirectionSprites = ACharIdle;
         }
 
-        // Handle animation only if moving
-        if (moveInput != Vector2.zero)
+        // Handle animation if moving horizontally
+        if (moveInput.x != 0)
         {
             AnimateMovement();
         }
         else
         {
-            // Reset to standing still frame
+            // Reset to idle frame
             animationIndex = 0;
             spriteRenderer.sprite = currentDirectionSprites[0];
         }
@@ -62,8 +72,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Update Rigidbody linear velocity (not MovePosition)
-        rb.linearVelocity = moveInput.normalized * moveSpeed;
+        // Apply horizontal movement
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
     }
 
     private void AnimateMovement()
@@ -75,6 +85,16 @@ public class PlayerMovement : MonoBehaviour
             animationTimer = 0f;
             animationIndex = (animationIndex + 1) % currentDirectionSprites.Length;
             spriteRenderer.sprite = currentDirectionSprites[animationIndex];
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Visualize ground check radius in editor
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
 }
