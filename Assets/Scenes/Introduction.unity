@@ -245,7 +245,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -427,7 +427,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -610,7 +610,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -794,7 +794,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.17, y: 0.61}
+    oldSize: {x: 0.16, y: 0.59}
     newSize: {x: 0.17, y: 0.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1380,13 +1380,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4729f5b6adc3904a896a04693a3bbed, type: 3}
+  m_Script: {fileID: 11500000, guid: eec017195324c404ba2d014f91c05c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1605354478}
   smoothSpeed: 5
-  offset: {x: 0, y: 2, z: -10}
-  zoomSize: 5
+  offset: {x: 0, y: 0, z: 0}
+  zoomSize: 3
 --- !u!1 &536130733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1513,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1969,7 +1969,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3067,7 +3067,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.72, y: 0.57}
+    oldSize: {x: 0.7, y: 0.56}
     newSize: {x: 0.72, y: 0.57}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3348,7 +3348,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4010,7 +4010,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.72, y: 0.57}
+    oldSize: {x: 0.7, y: 0.56}
     newSize: {x: 0.72, y: 0.57}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4684,7 +4684,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.72, y: 0.57}
+    oldSize: {x: 0.7, y: 0.56}
     newSize: {x: 0.72, y: 0.57}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5019,7 +5019,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5132,7 +5132,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.55, y: 0.21}
+    oldSize: {x: 0.53, y: 0.19}
     newSize: {x: 0.55, y: 0.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5346,7 +5346,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.07, y: 1.12}
+    oldSize: {x: 1.05, y: 1.1}
     newSize: {x: 1.07, y: 1.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -9,6 +9,8 @@ TagManager:
   - Fish
   - RiverBankEnd
   - Screw
+  - Pickup
+  - Machine
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Foreground
-  - 
+  - BlockedAreas
   - 
   - 
   - 
