@@ -10,6 +10,7 @@ TagManager:
   - RiverBankEnd
   - Screw
   - Pickup
+  - Machine
   layers:
   - Default
   - TransparentFX
