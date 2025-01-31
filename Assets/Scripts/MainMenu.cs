@@ -6,13 +6,13 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         // טען את הסצנה הראשית של המשחק
-        SceneManager.LoadScene("icy");
+        SceneManager.LoadScene("Game1");
     }
 
     public void ShowInstructions()
     {
         // טען את סצנת ההוראות
-        SceneManager.LoadScene("InstructionsScene");
+        SceneManager.LoadScene("Introduction");
     }
 
     public void ShowVideo()
