@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/river.unity
     guid: 3f7dd4965cdaee6448c7d0db4b46895c
   - enabled: 1
-    path: Assets/kitchen.unity
+    path: Assets/Scenes/kitchen.unity
     guid: a994de62cdf6ee14a9cdfa44862aa688
   - enabled: 1
     path: Assets/Scenes/dwarf.unity
@@ -38,6 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/hallway.unity
     guid: 1bffa8b685f29864a86ff9490ec747e5
+  - enabled: 1
+    path: Assets/Scenes/living_room.unity
+    guid: 602f760ab32059f429a21d84309b306d
+  - enabled: 1
+    path: Assets/Scenes/bedroom.unity
+    guid: 226ac979206904940a04abb2306f274a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
