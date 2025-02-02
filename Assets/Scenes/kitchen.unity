@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 415876617}
   - component: {fileID: 415876618}
   - component: {fileID: 415876619}
+  - component: {fileID: 415876620}
   m_Layer: 7
   m_Name: milk
   m_TagString: Pickup
@@ -511,6 +512,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &415876620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415876615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970ec52c26b574840813fcad430111d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &417737994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +1977,7 @@ GameObject:
   - component: {fileID: 907118060}
   - component: {fileID: 907118062}
   - component: {fileID: 907118063}
+  - component: {fileID: 907118064}
   m_Layer: 7
   m_Name: chair
   m_TagString: Pickup
@@ -2131,6 +2145,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &907118064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907118059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970ec52c26b574840813fcad430111d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1003878610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2166,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003878611}
-  - component: {fileID: 1003878612}
   - component: {fileID: 1003878614}
   - component: {fileID: 1003878613}
   m_Layer: 0
@@ -2165,18 +2190,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1003878612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003878610}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a6368f0ff6cfe4095e2c6c7e13aa3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1003878613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,15 +2932,17 @@ MonoBehaviour:
   ACharUp:
   - {fileID: -3619040623175912625, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   - {fileID: 5342248912342874811, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
+  - {fileID: -3619040623175912625, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   - {fileID: 18571099929544883, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   ACharLeft:
-  - {fileID: 5181755250700369501, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
+  - {fileID: 4603716247762976648, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   - {fileID: -1646002251120465706, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   ACharRight:
   - {fileID: 4544905508416709937, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   - {fileID: 8482542754959822453, guid: 3e1609930f85fb34f993b6435fc2e7d4, type: 3}
   moveSpeed: 5
   jumpHeight: 2
+  smoothSpeed: 12
   animationSpeed: 0.2
 --- !u!114 &1277510672
 MonoBehaviour:
@@ -2999,7 +3014,7 @@ GameObject:
   - component: {fileID: 1455420483}
   m_Layer: 7
   m_Name: fridge
-  m_TagString: base
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3401,6 +3416,7 @@ GameObject:
   - component: {fileID: 1517085185}
   - component: {fileID: 1517085186}
   - component: {fileID: 1517085187}
+  - component: {fileID: 1517085188}
   m_Layer: 7
   m_Name: meat
   m_TagString: Pickup
@@ -3559,6 +3575,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1517085188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517085183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970ec52c26b574840813fcad430111d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1896691037
 PrefabInstance:
   m_ObjectHideFlags: 0

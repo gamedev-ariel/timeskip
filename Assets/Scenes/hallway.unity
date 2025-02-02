@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: kitchen
+  spawnPoint: {fileID: 651146215}
 --- !u!68 &683743363
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1311,6 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: hallway
+  spawnPoint: {fileID: 0}
 --- !u!68 &1045191458
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -2323,6 +2325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: hallway
+  spawnPoint: {fileID: 0}
 --- !u!68 &1829185657
 EdgeCollider2D:
   m_ObjectHideFlags: 0

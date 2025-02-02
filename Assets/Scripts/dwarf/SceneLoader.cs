@@ -6,7 +6,7 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
 
-    public CanvasGroup fadeCanvas; // אם יש לך UI של fade
+    public CanvasGroup fadeCanvas; // UI של fade (אם יש)
     public float fadeDuration = 1f;
 
     private void Awake()
@@ -14,7 +14,7 @@ public class SceneLoader : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // שהסקריפט ישאר פעיל גם בין סצנות
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -56,3 +56,6 @@ public class SceneLoader : MonoBehaviour
         fadeCanvas.alpha = targetAlpha;
     }
 }
+
+
+
