@@ -69,7 +69,7 @@ public class InstructionManager : MonoBehaviour
         instructionText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         instructionText.fontSize = 28;
         instructionText.alignment = TextAnchor.MiddleCenter;
-        instructionText.color = Color.white;
+        instructionText.color = Color.black;
         instructionText.text = "Use space key to jump.";
 
         // Configure the RectTransform so that the text is centered in the canvas.
