@@ -175,7 +175,16 @@ void Start()
         // Destroy the persistent GameController before loading new scene
         Destroy(gameObject);
         Instance = null;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("main");
         Debug.Log("GameController: Main menu loaded.");
+    }
+
+        public void GoToStart()
+    {
+        // Destroy the persistent GameController before loading new scene
+        Destroy(gameObject);
+        Instance = null;
+        SceneManager.LoadScene("Start");
+        Debug.Log("GameController: Start loaded.");
     }
 }

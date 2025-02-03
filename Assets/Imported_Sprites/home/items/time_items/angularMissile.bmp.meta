@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      angularMissile_0: -9033090164424816053
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
