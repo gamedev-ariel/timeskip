@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tealMissile_0: -54941296175349246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

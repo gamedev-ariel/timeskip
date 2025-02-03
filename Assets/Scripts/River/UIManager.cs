@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public Text messageText;
     public Button restartButton;
     public Button mainMenuButton;
+    public Button startButton;
     public bool isForest = false;
         // Add references for screws
     public List<GameObject> darkScrews = new List<GameObject>();
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
         messageText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
+        startButton.gameObject.SetActive(false);
         // Debug check for screw lists
         Debug.Log($"Dark screws count: {darkScrews.Count}, Normal screws count: {normalScrews.Count}");
         
@@ -88,9 +90,11 @@ public class UIManager : MonoBehaviour
         messageText.gameObject.SetActive(true);
         messageText.text = "Well Done!";
         restartButton.gameObject.SetActive(true);
-        mainMenuButton.gameObject.SetActive(true); // Add this line
+        mainMenuButton.gameObject.SetActive(true); 
+        startButton.gameObject.SetActive(true);
         restartButton.onClick.AddListener(RestartGame);
-        mainMenuButton.onClick.AddListener(GoToMainMenu); // Add this line
+        mainMenuButton.onClick.AddListener(GoToMainMenu); 
+        startButton.onClick.AddListener(GoToStart); // Add this line
     }
 
     public void ShowTryAgain()
@@ -98,9 +102,11 @@ public class UIManager : MonoBehaviour
         messageText.gameObject.SetActive(true);
         messageText.text = "Try Again!";
         restartButton.gameObject.SetActive(true);
-        mainMenuButton.gameObject.SetActive(true); // Add this line
+        mainMenuButton.gameObject.SetActive(true); 
+        startButton.gameObject.SetActive(true);
         restartButton.onClick.AddListener(RestartGame);
-        mainMenuButton.onClick.AddListener(GoToMainMenu); // Add this line
+        mainMenuButton.onClick.AddListener(GoToMainMenu); 
+        startButton.onClick.AddListener(GoToStart); // Add this line
     }
 
     void RestartGame()
@@ -117,5 +123,10 @@ public class UIManager : MonoBehaviour
     {
         // Load the main menu scene
         FindAnyObjectByType<GameController>().GoToMainMenu();
+    }
+    void GoToStart()
+    {
+        // Load the main menu scene
+        FindAnyObjectByType<GameController>().GoToStart();
     }
 }
