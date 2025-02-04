@@ -1906,6 +1906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isForest: 0
   isRiver: 1
+  soundtrack: {fileID: 8300000, guid: b50d97a857e621a4dae763804afe2cf5, type: 3}
 --- !u!1 &1948450093
 GameObject:
   m_ObjectHideFlags: 0
