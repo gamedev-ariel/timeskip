@@ -54,7 +54,15 @@ public class GameManager : MonoBehaviour
     {
         if (isCorrect)
         {
+            
             currentLevel++;
+
+            if (currentLevel == 4)
+            {
+                SceneManager.LoadScene("kitchen");
+                return;
+            }
+
             if (currentLevel >= questionManager.GetTotalQuestions())
             {
                 SceneManager.LoadScene("NextScene");
