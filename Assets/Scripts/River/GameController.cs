@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +22,10 @@ public class GameController : MonoBehaviour
     public UIManager uiManager;
     public BackgroundManager backgroundManager; // Reference to BackgroundManager
 
+    // --- NEW: Reference to InstructionManager and a flag for starting the countdown ---
+    private InstructionManager instructionManager;
+    private bool countdownStarted = false;
+
     void Awake()
     {
         // Implement Singleton pattern
@@ -34,32 +40,67 @@ public class GameController : MonoBehaviour
         }
     }
 
-void Start()
-{
-    timer = 0f;
-    // Find UIManager in scene if reference is lost
-    if (uiManager == null)
+    void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        timer = 0f;
+        
+        // Find UIManager in scene if reference is lost
         if (uiManager == null)
         {
-            Debug.LogError("UIManager not found in scene!");
-            return;
+            uiManager = FindObjectOfType<UIManager>();
+            if (uiManager == null)
+            {
+                Debug.LogError("UIManager not found in scene!");
+                return;
+            }
         }
+
+        // --- NEW: Find the InstructionManager in the scene ---
+        instructionManager = FindObjectOfType<InstructionManager>();
+        if (instructionManager == null)
+        {
+            Debug.LogError("InstructionManager not found in scene!");
+        }
+        // Note: We no longer call uiManager.ShowStartCountdown() here.
     }
-    uiManager.ShowStartCountdown(startDelay);
-}
 
     void Update()
     {
         if (!gameStarted)
         {
-            // Countdown before starting the game
-            timer += Time.deltaTime;
-            uiManager.UpdateCountdown(startDelay - timer);
-            if (timer >= startDelay)
+            // --- NEW: Wait until InstructionManager.currentState is Completed ---
+            bool instructionsComplete = false;
+            if (instructionManager != null)
             {
-                StartGame();
+                // Use reflection to get the private 'currentState' field from InstructionManager.
+                FieldInfo field = typeof(InstructionManager).GetField("currentState", BindingFlags.NonPublic | BindingFlags.Instance);
+                if (field != null)
+                {
+                    object currentStateValue = field.GetValue(instructionManager);
+                    // Parse the "Completed" enum value from the InstructionManager's private enum.
+                    Type enumType = field.FieldType;
+                    object completedValue = Enum.Parse(enumType, "Completed");
+                    instructionsComplete = currentStateValue.Equals(completedValue);
+                }
+            }
+
+            if (instructionsComplete)
+            {
+                if (!countdownStarted)
+                {
+                    // Reset timer and show the countdown only after instructions are complete.
+                    timer = 0f;
+                    uiManager.ShowStartCountdown(startDelay);
+                    countdownStarted = true;
+                }
+
+                // Countdown before starting the game
+                timer += Time.deltaTime;
+                uiManager.UpdateCountdown(startDelay - timer);
+                if (timer >= startDelay)
+                {
+                    StartGame();
+                }
             }
         }
         else if (!gameEnded)
@@ -72,13 +113,12 @@ void Start()
             float normalizedTime = timer / gameDuration;
             currentScrollSpeed = Mathf.Lerp(minScrollSpeed, maxScrollSpeed, normalizedTime);
             
-            // // Update components with new speed
+            // Uncomment these lines if you want to update the background and fish spawners with the new speed.
             // if (backgroundManager != null)
             // {
             //     backgroundManager.UpdateSpeed(currentScrollSpeed);
             // }
 
-            // // Update fish spawners with new speed
             // FishSpawner[] fishSpawners = FindObjectsOfType<FishSpawner>();
             // foreach (FishSpawner spawner in fishSpawners)
             // {
@@ -137,7 +177,7 @@ void Start()
             backgroundManager.StopSpawning(); // Implement if necessary
             Debug.Log("GameController: Stopped BackgroundManager spawning.");
         }
-            // Find and destroy the player
+        // Find and destroy the player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -179,7 +219,7 @@ void Start()
         Debug.Log("GameController: Main menu loaded.");
     }
 
-        public void GoToStart()
+    public void GoToStart()
     {
         // Destroy the persistent GameController before loading new scene
         Destroy(gameObject);
