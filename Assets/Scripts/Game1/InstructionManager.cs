@@ -6,8 +6,12 @@ using UnityEngine.EventSystems;
 public class InstructionManager : MonoBehaviour
 {
     // Define the instruction states.
+
+    public bool isForest = false;
+    public bool isRiver = false;
     private enum InstructionState
     {
+        waitingForAnyKey,
         WaitingForJump,
         WaitingForArrow,
         WaitingForEnter,  // For house
@@ -21,6 +25,10 @@ public class InstructionManager : MonoBehaviour
 
     void Start()
     {
+        if (isForest || isRiver)
+        {
+            currentState = InstructionState.waitingForAnyKey;
+        }
         // Ensure an EventSystem exists in the scene.
         EnsureEventSystem();
 
@@ -70,8 +78,18 @@ public class InstructionManager : MonoBehaviour
         instructionText.fontSize = 28;
         instructionText.alignment = TextAnchor.MiddleCenter;
         instructionText.color = Color.black;
-        instructionText.text = "Use space key to jump.";
-
+        if (isForest)
+        {
+            instructionText.text = "Collect the screws to fix the time machine! Avoid the berries, they are poisonous! Press any key to start.";
+        }
+        else if (isRiver)
+        {
+            instructionText.text = "Welcome to the river! Be carefull of the piranhas! Press any key to start.";
+        }
+        else
+        {
+            instructionText.text = "Use space key to jump.";
+        }
         // Configure the RectTransform so that the text is centered in the canvas.
         RectTransform textRT = textGO.GetComponent<RectTransform>();
         textRT.anchorMin = new Vector2(0.5f, 0.5f);
@@ -92,6 +110,14 @@ public class InstructionManager : MonoBehaviour
                 {
                     currentState = InstructionState.WaitingForArrow;
                     instructionText.text = "Use right arrow to go right or left arrow to go left.";
+                }
+                break;
+
+            case InstructionState.waitingForAnyKey:     
+                if (Input.anyKeyDown)
+                {
+                    currentState = InstructionState.Completed;
+                    instructionText.text = "";
                 }
                 break;
 
