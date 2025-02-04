@@ -26,6 +26,8 @@ public class GameController : MonoBehaviour
     private InstructionManager instructionManager;
     private bool countdownStarted = false;
 
+    
+
     void Awake()
     {
         // Implement Singleton pattern
