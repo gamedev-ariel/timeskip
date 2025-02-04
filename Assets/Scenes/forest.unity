@@ -2826,6 +2826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isForest: 1
   isRiver: 0
+  soundtrack: {fileID: 8300000, guid: b23e5430dc9bd724a887a2161edd860b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
