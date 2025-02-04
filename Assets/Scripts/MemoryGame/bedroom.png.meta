@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e979cbd833b4735429a584c25224f4cf
+guid: 64004d3a63f89a2499ff9286e72ce1f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4521333745517531174
-    second: PC Computer - Undertale - Home and New Home_0
+      213: 8197047826604361390
+    second: bedroom_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,89 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PC Computer - Undertale - Home and New Home_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 486
-        width: 321
-        height: 239
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a33b8230a5f8434a863dc698813fed4
-      internalID: 855872079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC Computer - Undertale - Home and New Home_1
-      rect:
-        serializedVersion: 2
-        x: 328
-        y: 486
-        width: 320
-        height: 240
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8233f940607b464394689710f568f23
-      internalID: -517096167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC Computer - Undertale - Home and New Home_4
+      name: bedroom_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 235
-        width: 330
-        height: 245
+        y: 0
+        width: 1138
+        height: 565
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 09910a04c09e44140818983ede77e957
-      internalID: 1786525137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC Computer - Undertale - Home and New Home_5
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 239
-        width: 330
-        height: 245
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 843d4a810cbf3964fa53cfe621d5bd06
-      internalID: -495758295
+      spriteID: ea604a78193c1c170800000000000000
+      internalID: 8197047826604361390
       vertices: []
       indices: 
       edges: []
@@ -217,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c343b23d0d96a9341a84a0593b6c85d3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -226,16 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      PC Computer - Undertale - Home and New Home_0: 855872079
-      PC Computer - Undertale - Home and New Home_1: -517096167
-      PC Computer - Undertale - Home and New Home_2: 572441865
-      PC Computer - Undertale - Home and New Home_3: -837140630
-      PC Computer - Undertale - Home and New Home_4: 1786525137
-      PC Computer - Undertale - Home and New Home_5: -495758295
-      PC Computer - Undertale - Home and New Home_6: -549292344
-      PC Computer - Undertale - Home and New Home_7: 415534609
-      living_room_0: -303703041
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

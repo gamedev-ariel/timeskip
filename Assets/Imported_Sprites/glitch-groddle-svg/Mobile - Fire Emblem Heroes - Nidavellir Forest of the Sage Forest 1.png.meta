@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae90f777073993345b73d2825a55169e
+guid: 97dbe182a0b87e6449a9573fc3e76ec3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -273,10 +273,10 @@ TextureImporter:
       name: Mobile - Fire Emblem Heroes - Nidavellir Forest of the Sage Forest_0
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 449
+        x: 0
+        y: 450
         width: 1024
-        height: 451
+        height: 450
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1351,7 +1351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d908c88cd56bf7498e62a5571196459
+    spriteID: 566d08d30a6dd32468ef7db2cbe79f4d
     internalID: 0
     vertices: []
     indices: 
