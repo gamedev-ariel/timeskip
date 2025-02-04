@@ -1,7 +1,7 @@
-using System.Collections;
+ן»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // ייבוא TextMeshPro
+using TMPro;
 
 public class UIManagerMG : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class UIManagerMG : MonoBehaviour
     public Image sceneSnapshotImage;
     public GameObject questionPanel;
     public GameObject gameOverPanel;
-    public TextMeshProUGUI questionText; // טקסט השאלה
-    public TextMeshProUGUI livesText; // תצוגת חיים
+    public TextMeshProUGUI questionText;
+    public TextMeshProUGUI livesText;
 
     private void Awake()
     {
@@ -29,35 +29,10 @@ public class UIManagerMG : MonoBehaviour
         sceneSnapshotPanel.SetActive(true);
     }
 
-    public void ShowSceneSnapshot(Sprite snapshot, string question)
+    public void ShowSceneSnapshot(Sprite snapshot)
     {
-        if (sceneSnapshotImage != null && snapshot != null)
-        {
-            sceneSnapshotPanel.SetActive(true);
-            sceneSnapshotImage.sprite = snapshot;
-            Debug.Log("Loaded snapshot: " + snapshot.name);
-            StartCoroutine(HideSceneSnapshotAfterDelay(question));
-        }
-        else
-        {
-            Debug.LogWarning("SceneSnapshotImage or snapshot is null!");
-        }
-    }
-
-    private IEnumerator HideSceneSnapshotAfterDelay(string question)
-    {
-        yield return new WaitForSeconds(2);
-        sceneSnapshotPanel.SetActive(false);
-        questionPanel.SetActive(true);
-
-        if (questionText != null)
-        {
-            questionText.text = question;
-        }
-        else
-        {
-            Debug.LogWarning("questionText is null!");
-        }
+        sceneSnapshotPanel.SetActive(true);
+        sceneSnapshotImage.sprite = snapshot;
     }
 
     public void HideSceneSnapshot()
@@ -65,16 +40,25 @@ public class UIManagerMG : MonoBehaviour
         sceneSnapshotPanel.SetActive(false);
     }
 
+    public void ShowQuestionPanel()
+    {
+        questionPanel.SetActive(true);
+    }
+
+    public void HideQuestionPanel()
+    {
+        questionPanel.SetActive(false);
+    }
+
     public void UpdateLives(int lives)
     {
-        if (livesText != null)
-        {
-            livesText.text = "Lives: " + lives;
-        }
+        livesText.text = "Lives: " + lives;
     }
 
     public void ShowGameOver()
     {
+        gameOverPanel.SetActive(false);
+        questionPanel.SetActive(false);
         gameOverPanel.SetActive(true);
     }
 }

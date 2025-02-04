@@ -1,7 +1,6 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 [System.Serializable]
 public class QuestionData
@@ -19,13 +18,6 @@ public class QuestionManager : MonoBehaviour
     public QuestionData[] questions;
     private int correctAnswerIndex;
 
-    public Sprite GetSceneSnapshot(int level)
-    {
-        if (level < questions.Length)
-            return questions[level].sceneImage;
-        return null;
-    }
-
     public string GetQuestion(int level)
     {
         if (level < questions.Length)
@@ -38,25 +30,29 @@ public class QuestionManager : MonoBehaviour
         return questions.Length;
     }
 
-    public void LoadQuestion(int level)
+    public void PreloadQuestion(int level)
     {
         if (level >= questions.Length) return;
 
         List<Sprite> answers = new List<Sprite>(questions[level].answerOptions);
         correctAnswerIndex = answers.IndexOf(questions[level].correctAnswer);
 
-        uiManagerMG.ShowSceneSnapshot(questions[level].sceneImage, questions[level].question);
         SetAnswers(answers);
     }
 
     private void SetAnswers(List<Sprite> answers)
     {
-        for (int i = 0; i < answerButtons.Length; i++)
+        int buttonCount = answerButtons.Length;
+        float buttonSpacing = 150f; // Adjust spacing dynamically
+        float totalWidth = buttonSpacing * (answers.Count - 1);
+
+        for (int i = 0; i < buttonCount; i++)
         {
             if (i < answers.Count)
             {
                 answerButtons[i].image.sprite = answers[i];
                 answerButtons[i].gameObject.SetActive(true);
+                answerButtons[i].transform.localPosition = new Vector3(-totalWidth / 2 + i * buttonSpacing, 0, 0);
                 int index = i;
                 answerButtons[i].onClick.RemoveAllListeners();
                 answerButtons[i].onClick.AddListener(() => AnswerSelected(index));
