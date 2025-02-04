@@ -6,6 +6,8 @@
 
 [קישור ל - itch](https://eran-david.itch.io/timeskip)
 
+[קישור לטריילר](https://www.youtube.com/watch?v=pa8Azw4GSfM)
+
 [תרשים זרימה מהבנות של ריפוי בעיסוק](https://github.com/gamedev-ariel/timeskip/blob/main/gameFlow.pdf)
 
 
