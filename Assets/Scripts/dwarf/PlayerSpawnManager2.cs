@@ -8,8 +8,8 @@ public class PlayerSpawnManager2 : MonoBehaviour
     private Vector3 spawnPosition;
     private bool hasSpawnPosition = false;
 
-    private HashSet<string> collectedMachines = new HashSet<string>(); // שמירת חפצים שנעלמו
-    private Dictionary<string, Vector3> movedPickups = new Dictionary<string, Vector3>(); // שמירת מיקומים של חפצים
+    private HashSet<string> collectedMachines = new HashSet<string>(); // שמירת אובייקטים שנאספו
+    private Dictionary<string, Vector3> movedPickups = new Dictionary<string, Vector3>(); // מיקום חפצים
 
     private void Awake()
     {
@@ -29,6 +29,7 @@ public class PlayerSpawnManager2 : MonoBehaviour
     {
         spawnPosition = position;
         hasSpawnPosition = true;
+        Debug.Log("מיקום השחקן נשמר: " + spawnPosition);
     }
 
     public bool TryGetSpawnPosition(out Vector3 position)
@@ -37,27 +38,27 @@ public class PlayerSpawnManager2 : MonoBehaviour
         return hasSpawnPosition;
     }
 
-    // שמירת חפץ שנאסף
+    // שמירת אובייקטים שנאספו
     public void CollectMachine(string objectID)
     {
         collectedMachines.Add(objectID);
     }
 
-    // בדיקה אם חפץ כבר נאסף
     public bool IsMachineCollected(string objectID)
     {
         return collectedMachines.Contains(objectID);
     }
 
-    // שמירת מיקום חפץ שהוזז
+    // שמירת מיקום חפצים
     public void SavePickupPosition(string objectID, Vector3 position)
     {
         movedPickups[objectID] = position;
     }
 
-    // קבלת מיקום חפץ
     public bool TryGetPickupPosition(string objectID, out Vector3 position)
     {
         return movedPickups.TryGetValue(objectID, out position);
     }
 }
+
+

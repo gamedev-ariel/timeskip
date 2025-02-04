@@ -1,4 +1,4 @@
-using UnityEngine;
+ן»¿using UnityEngine;
 
 public class PersistentObjects : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class PersistentObjects : MonoBehaviour
         {
             if (PlayerSpawnManager2.Instance.IsMachineCollected(obj.name))
             {
-                Destroy(obj); // מוחק אובייקטים שכבר נאספו
+                Destroy(obj);
             }
         }
 
@@ -16,8 +16,9 @@ public class PersistentObjects : MonoBehaviour
         {
             if (PlayerSpawnManager2.Instance.TryGetPickupPosition(obj.name, out Vector3 position))
             {
-                obj.transform.position = position; // מחזיר למיקום שנשמר
+                obj.transform.position = position;
             }
         }
     }
 }
+
