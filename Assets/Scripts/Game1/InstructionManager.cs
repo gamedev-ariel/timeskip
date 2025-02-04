@@ -5,19 +5,22 @@ using UnityEngine.EventSystems;
 
 public class InstructionManager : MonoBehaviour
 {
-    // --- Add this line ---
-    private static bool instructionsWereShown = false;
+    // Track whether we've shown instructions for the "start," "forest," or "river" scenes
+    private static bool startInstructionsShown = false;
+    private static bool forestInstructionsShown = false;
+    private static bool riverInstructionsShown = false;
 
     public bool isForest = false;
     public bool isRiver = false;
+
     private enum InstructionState
     {
         waitingForAnyKey,
         WaitingForJump,
         WaitingForArrow,
-        WaitingForEnter,
-        WaitingForRock,
-        WaitingForTerrain,
+        WaitingForEnter,  // For house
+        WaitingForRock,   // For rock
+        WaitingForTerrain, // For terrain
         Completed
     }
 
@@ -26,37 +29,63 @@ public class InstructionManager : MonoBehaviour
 
     void Start()
     {
-        // --- If instructions were shown before, skip them entirely ---
-        if (instructionsWereShown)
-        {
-            currentState = InstructionState.Completed;
-            // We still need a canvas and text so your triggers can change it,
-            // but we'll just start off blank and do nothing else.
-            EnsureEventSystem();
-            SetupCanvasAndText();
-            instructionText.text = "";
-            return;
-        }
-
-        if (isForest || isRiver)
-        {
-            currentState = InstructionState.waitingForAnyKey;
-        }
-
+        // Make sure we have an EventSystem for UI
         EnsureEventSystem();
-        SetupCanvasAndText();  // Moved UI setup into a separate method (see below).
 
+        // Set up the Canvas and Text UI
+        SetupCanvasAndText();
+
+        // Decide which instructions to show based on flags
         if (isForest)
         {
-            instructionText.text = "Collect the screws to fix the time machine! Avoid the berries, they are poisonous! Press any key to start.";
+            // Show forest instructions only if not shown before
+            if (!forestInstructionsShown)
+            {
+                instructionText.text = "Collect the screws to fix the time machine! Avoid the berries, they are poisonous! Press any key to start.";
+                // Mark we have shown forest instructions
+                forestInstructionsShown = true;
+                currentState = InstructionState.waitingForAnyKey;
+            }
+            else
+            {
+                // Already shown, skip
+                instructionText.text = "";
+                currentState = InstructionState.Completed;
+            }
         }
         else if (isRiver)
         {
-            instructionText.text = "Welcome to the river! Be careful of the piranhas! Press any key to start.";
+            // Show river instructions only if not shown before
+            if (!riverInstructionsShown)
+            {
+                instructionText.text = "Welcome to the river! Be careful of the piranhas! Press any key to start.";
+                // Mark we have shown river instructions
+                riverInstructionsShown = true;
+                currentState = InstructionState.waitingForAnyKey;
+            }
+            else
+            {
+                // Already shown, skip
+                instructionText.text = "";
+                currentState = InstructionState.Completed;
+            }
         }
         else
         {
-            instructionText.text = "Use space key to jump.";
+            // Presumably the "Start" scene or some other scene
+            if (!startInstructionsShown)
+            {
+                // Show the original "start" instructions once
+                instructionText.text = "Use space key to jump.";
+                startInstructionsShown = true;
+                currentState = InstructionState.WaitingForJump;
+            }
+            else
+            {
+                // Already shown, skip
+                instructionText.text = "";
+                currentState = InstructionState.Completed;
+            }
         }
     }
 
@@ -65,6 +94,7 @@ public class InstructionManager : MonoBehaviour
         switch (currentState)
         {
             case InstructionState.WaitingForJump:
+                // Wait for space key to be pressed
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     currentState = InstructionState.WaitingForArrow;
@@ -73,6 +103,7 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.waitingForAnyKey:
+                // Wait for any key press
                 if (Input.anyKeyDown)
                 {
                     currentState = InstructionState.Completed;
@@ -81,6 +112,7 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.WaitingForArrow:
+                // Wait for the left or right arrow press
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     currentState = InstructionState.Completed;
@@ -89,6 +121,7 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.WaitingForEnter:
+                // House: load "kitchen" scene
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     SceneManager.LoadScene("kitchen");
@@ -96,6 +129,7 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.WaitingForRock:
+                // Rock: load "river" scene
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     SceneManager.LoadScene("river");
@@ -103,6 +137,7 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.WaitingForTerrain:
+                // Terrain: load "forest" scene
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     SceneManager.LoadScene("forest");
@@ -110,16 +145,12 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.Completed:
-                // --- Once we ever hit "Completed," we mark instructionsWereShown = true. ---
-                if (!instructionsWereShown)
-                {
-                    instructionsWereShown = true;
-                }
+                // Do nothing; instructions are done
                 break;
         }
     }
 
-    // House triggers
+    // -------------- House Triggers --------------
     public void TriggerHouseInstruction()
     {
         if (currentState != InstructionState.WaitingForEnter)
@@ -129,6 +160,7 @@ public class InstructionManager : MonoBehaviour
             instructionText.text = "Click enter to enter the house.";
         }
     }
+
     public void ClearHouseInstruction()
     {
         if (currentState == InstructionState.WaitingForEnter)
@@ -139,7 +171,7 @@ public class InstructionManager : MonoBehaviour
         }
     }
 
-    // Rock triggers
+    // -------------- Rock Triggers --------------
     public void TriggerRockInstruction()
     {
         if (currentState != InstructionState.WaitingForRock)
@@ -148,6 +180,7 @@ public class InstructionManager : MonoBehaviour
             instructionText.text = "Click enter to go to the river.";
         }
     }
+
     public void ClearRockInstruction()
     {
         if (currentState == InstructionState.WaitingForRock)
@@ -157,7 +190,7 @@ public class InstructionManager : MonoBehaviour
         }
     }
 
-    // Terrain triggers
+    // -------------- Terrain Triggers --------------
     public void TriggerTerrainInstruction()
     {
         if (currentState != InstructionState.WaitingForTerrain)
@@ -166,6 +199,7 @@ public class InstructionManager : MonoBehaviour
             instructionText.text = "Click enter to go to the forest.";
         }
     }
+
     public void ClearTerrainInstruction()
     {
         if (currentState == InstructionState.WaitingForTerrain)
@@ -175,7 +209,7 @@ public class InstructionManager : MonoBehaviour
         }
     }
 
-    // Make sure EventSystem exists
+    // Make sure there is an EventSystem in the scene
     void EnsureEventSystem()
     {
         if (FindObjectOfType<EventSystem>() == null)
@@ -186,14 +220,16 @@ public class InstructionManager : MonoBehaviour
         }
     }
 
-    // --- UI setup code extracted into a method for clarity ---
+    // Helper method to set up a Canvas + Text in World Space
     void SetupCanvasAndText()
     {
+        // Create a Canvas (World Space)
         GameObject canvasGO = new GameObject("InstructionCanvas");
         Canvas canvas = canvasGO.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.WorldSpace;
         canvas.worldCamera = Camera.main;
 
+        // If there is a main camera, place the canvas in front of it
         if (Camera.main != null)
         {
             canvasGO.transform.SetParent(Camera.main.transform);
@@ -202,31 +238,39 @@ public class InstructionManager : MonoBehaviour
         }
         else
         {
+            // Fallback if no main camera is found
             canvasGO.transform.position = new Vector3(0f, 0f, -9f);
         }
+        // Scale down the canvas
         canvasGO.transform.localScale = Vector3.one * 0.01f;
 
+        // Adjust RectTransform size
         RectTransform canvasRT = canvasGO.GetComponent<RectTransform>();
         canvasRT.sizeDelta = new Vector2(800, 600);
 
+        // Optional: add CanvasScaler and GraphicRaycaster
         CanvasScaler scaler = canvasGO.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(800, 600);
-
         canvasGO.AddComponent<GraphicRaycaster>();
 
-        // Create a Text UI element
+        // Create a Text object for instructions
         GameObject textGO = new GameObject("InstructionText");
         textGO.transform.SetParent(canvasGO.transform, false);
         instructionText = textGO.AddComponent<Text>();
 
+        // Use LegacyRuntime font instead of Arial
         instructionText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        // Make text bigger
         instructionText.fontSize = 56;
+        // Center alignment and color
         instructionText.alignment = TextAnchor.MiddleCenter;
         instructionText.color = Color.magenta;
+        // Wrap text properly
         instructionText.horizontalOverflow = HorizontalWrapMode.Wrap;
         instructionText.verticalOverflow = VerticalWrapMode.Overflow;
 
+        // Position the Text in the center of the canvas
         RectTransform textRT = textGO.GetComponent<RectTransform>();
         textRT.anchorMin = new Vector2(0.5f, 0.5f);
         textRT.anchorMax = new Vector2(0.5f, 0.5f);

@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     [Header("Game Settings")]
     public float startDelay = 5f;
-    public float gameDuration = 90f; // 1.5 minutes
+    public float gameDuration = 60f; // 1 minute
     public float minScrollSpeed = 0.5f;
     public float maxScrollSpeed = 2f;
     public float currentScrollSpeed;
