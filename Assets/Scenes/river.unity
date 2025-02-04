@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDelay: 5
-  gameDuration: 90
-  minScrollSpeed: 1
+  gameDuration: 60
+  minScrollSpeed: 1.5
   maxScrollSpeed: 2.5
   currentScrollSpeed: 0
   uiManager: {fileID: 1003422892}
@@ -434,7 +434,7 @@ MonoBehaviour:
   backgroundStartPrefab: {fileID: 3602913737560485493, guid: d39c0c631fb8a41478acf20c92c98ce7, type: 3}
   backgroundMiddlePrefab: {fileID: 3602913737560485493, guid: 77480cc9b214ce54f9b05091e48f506a, type: 3}
   backgroundEndPrefab: {fileID: 2534165623152922238, guid: 407feb87f80c9234fb0b0f0d76af8cf5, type: 3}
-  numberOfMiddleBackgrounds: 7
+  numberOfMiddleBackgrounds: 1
   backgroundWidth: 30
   positionY: 23
   positionZ: 0
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 10
+  jumpForce: 5
 --- !u!1 &1610511720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isForest: 0
   isRiver: 1
+  soundtrack: {fileID: 8300000, guid: b50d97a857e621a4dae763804afe2cf5, type: 3}
 --- !u!1 &1948450093
 GameObject:
   m_ObjectHideFlags: 0
