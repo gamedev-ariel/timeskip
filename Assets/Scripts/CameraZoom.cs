@@ -7,6 +7,11 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset = new Vector3(0f, 2f, -10f); // îé÷åí éçñé áéï äîöìîä ìùç÷ï
     public float zoomSize = 5f; // øîú äæåí ùì äîöìîä
 
+    public float minX = -10f;
+    public float maxX = 10f;
+    public float minY = -10f;
+    public float maxY = 10f;
+
     private Camera cam;
 
     void Start()
@@ -22,8 +27,22 @@ public class CameraFollow : MonoBehaviour
     {
         if (player == null) return;
 
-        // òå÷á àçøé äùç÷ï òí úðåòä çì÷ä
+        // Determine the desired position based on the player's position and the offset.
         Vector3 targetPosition = player.position + offset;
+
+        if(targetPosition.x < minX){
+            targetPosition.x = minX;
+        }
+        else if(targetPosition.x > maxX){
+            targetPosition.x = maxX;
+        }
+        if(targetPosition.y < minY){
+            targetPosition.y = minY;
+        }
+        else if(targetPosition.y > maxY){
+            targetPosition.y = maxY;
+        }
+        // Smoothly move the camera toward the clamped target position.
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
     }
 }

@@ -460,7 +460,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gear_14_tex_512_0: -6946898259981778574
+      gear_14_tex_512_1: 1895910730243005738
+      gear_14_tex_512_10: 4897957850904950701
+      gear_14_tex_512_11: 1057144307170892669
+      gear_14_tex_512_12: -5078421744827624471
+      gear_14_tex_512_2: 5852654134558770564
+      gear_14_tex_512_3: -4539956517943123273
+      gear_14_tex_512_4: -1140985966584371587
+      gear_14_tex_512_5: 2755208431511391426
+      gear_14_tex_512_6: -626534588462611392
+      gear_14_tex_512_7: 8730337865335063583
+      gear_14_tex_512_8: 2229831295511165514
+      gear_14_tex_512_9: -2808877345717938945
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

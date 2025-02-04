@@ -5,32 +5,48 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        // итп аъ дсцрд дшащйъ щм дощзч
-        SceneManager.LoadScene("Game1");
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        SceneManager.LoadScene("Start");
     }
 
-    public void ShowInstructions()
+    public void JumpMenu()
     {
-        // итп аъ сцръ ддешаеъ
-        SceneManager.LoadScene("Introduction");
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        SceneManager.LoadScene("JumpMenu");
+    }
+
+    public void River()
+    {
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        SceneManager.LoadScene("river");
     }
 
     public void ShowVideo()
     {
-        // итп аъ сцръ деейгае ае дфтм ейгае оебрд
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         SceneManager.LoadScene("VideoScene");
     }
 
     public void ShowInfo()
     {
-        // итп аъ сцръ дойгт
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        SceneManager.LoadScene("InfoScene");
+    }
+    public void ShowStatistics()
+    {
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         SceneManager.LoadScene("InfoScene");
     }
 
-    public void ShowMap()
+    public void Forest()
     {
-        // итп аъ сцръ офъ дощзч
-        SceneManager.LoadScene("515253");
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        SceneManager.LoadScene("forest");
+    }
+    public void Kitchen()
+    {
+        // пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+        SceneManager.LoadScene("kitchen");
     }
 
     public void BackToMainMenu()
@@ -41,7 +57,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        // свеш аъ дощзч
+        // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         Application.Quit();
     }
 }

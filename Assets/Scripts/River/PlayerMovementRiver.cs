@@ -8,11 +8,13 @@ public class PlayerMovementRiver : MonoBehaviour
     private Rigidbody2D rb;
     private bool isOnMushroom = false; 
 
+    private float defaultGravityScale;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
-
+        defaultGravityScale = rb.gravityScale; // Save the original gravity scale
     }
 
     void Update()
@@ -23,6 +25,16 @@ public class PlayerMovementRiver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
+        }
+
+                if (Input.GetKey(KeyCode.DownArrow))
+        {
+            Debug.Log("Down Arrow is held down.");
+            rb.gravityScale = defaultGravityScale * 6;
+        }
+        else
+        {
+            rb.gravityScale = defaultGravityScale;
         }
     }
     public void Jump()  
