@@ -75,9 +75,15 @@ public class InstructionManager : MonoBehaviour
 
         // Use LegacyRuntime.ttf instead of Arial.ttf.
         instructionText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        instructionText.fontSize = 28;
+        // Make the text 2 times bigger (from 28 to 56)
+        instructionText.fontSize = 56;
         instructionText.alignment = TextAnchor.MiddleCenter;
-        instructionText.color = Color.black;
+        instructionText.color = Color.magenta;
+
+        // Enable text wrapping for longer messages.
+        instructionText.horizontalOverflow = HorizontalWrapMode.Wrap;
+        instructionText.verticalOverflow = VerticalWrapMode.Overflow;
+
         if (isForest)
         {
             instructionText.text = "Collect the screws to fix the time machine! Avoid the berries, they are poisonous! Press any key to start.";
@@ -96,7 +102,8 @@ public class InstructionManager : MonoBehaviour
         textRT.anchorMax = new Vector2(0.5f, 0.5f);
         textRT.pivot = new Vector2(0.5f, 0.5f);
         textRT.anchoredPosition = Vector2.zero;
-        textRT.sizeDelta = new Vector2(600, 50);
+        // Increase the height to ensure the full multi-line text is visible.
+        textRT.sizeDelta = new Vector2(600, 150);
     }
 
     void Update()
@@ -167,6 +174,7 @@ public class InstructionManager : MonoBehaviour
         if (currentState != InstructionState.WaitingForEnter)
         {
             currentState = InstructionState.WaitingForEnter;
+            instructionText.color = Color.black;
             instructionText.text = "Click enter to enter the house.";
         }
     }
@@ -176,6 +184,7 @@ public class InstructionManager : MonoBehaviour
     {
         if (currentState == InstructionState.WaitingForEnter)
         {
+            instructionText.color = Color.white;
             instructionText.text = "";
             currentState = InstructionState.Completed;
         }
