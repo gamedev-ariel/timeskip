@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fireplace_00007_0: 2745559103810263300
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
