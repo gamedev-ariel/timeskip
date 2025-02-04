@@ -16,5 +16,10 @@ public class GameOverPanel : MonoBehaviour
     public void SkipToNextLevel()
     {
         SceneManager.LoadScene("Dwarf");
+    }    
+    
+    public void GoToStart()
+    {
+        SceneManager.LoadScene("Start");
     }
 }
