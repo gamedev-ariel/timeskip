@@ -142,10 +142,10 @@ public class InstructionManager : MonoBehaviour
                 break;
 
             case InstructionState.WaitingForEnter:
-                // House: load "kitchen" scene
+                // House: load "MemoryGame" scene
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    SceneManager.LoadScene("kitchen");
+                    SceneManager.LoadScene("MemoryGame");
                 }
                 break;
 

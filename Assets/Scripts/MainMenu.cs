@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour
     public void Kitchen()
     {
         // ��� �� ���� ��� �����
-        SceneManager.LoadScene("kitchen");
+        SceneManager.LoadScene("MemoryGame");
     }
 
     public void BackToMainMenu()
