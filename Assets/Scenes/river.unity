@@ -1387,6 +1387,7 @@ GameObject:
   - component: {fileID: 1605354483}
   - component: {fileID: 1605354484}
   - component: {fileID: 1605354485}
+  - component: {fileID: 1605354486}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1557,7 +1558,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605354477}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a64398b3c07fd64f99c67b60eb2f7ff, type: 3}
   m_Name: 
@@ -1581,6 +1582,20 @@ MonoBehaviour:
   victorySound: {fileID: 0}
   jumpSound: {fileID: 0}
   screwCollectSound: {fileID: 0}
+--- !u!114 &1605354486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605354477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c4d874e2b63734aa19f5eca9008e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 10
 --- !u!1 &1610511720
 GameObject:
   m_ObjectHideFlags: 0
