@@ -13,6 +13,20 @@ public class InstructionManager : MonoBehaviour
     public bool isForest = false;
     public bool isRiver = false;
 
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip soundtrack;
+
+    private bool PlaySound(AudioClip clip)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+            return true;
+        }
+        return false;
+    }
+
+
     private enum InstructionState
     {
         waitingForAnyKey,
@@ -29,6 +43,13 @@ public class InstructionManager : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        // Add AudioSource component if it doesn't exist
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+        PlaySound(soundtrack);
         // Make sure we have an EventSystem for UI
         EnsureEventSystem();
 
