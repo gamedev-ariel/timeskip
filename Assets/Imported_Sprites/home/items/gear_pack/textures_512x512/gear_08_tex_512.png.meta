@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gear_08_tex_512_0: -4133870401724059739
+      gear_08_tex_512_1: -6233444201683443937
+      gear_08_tex_512_2: 8419798146813322658
+      gear_08_tex_512_3: 8553791372658117903
+      gear_08_tex_512_4: 7113361760697879098
+      gear_08_tex_512_5: -8757355685026406591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
