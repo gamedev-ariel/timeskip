@@ -1,5 +1,7 @@
 # timeskip
 
+Final Year Project – ADHD Therapeutic Game
+Collaborating with a team of Occupational Therapy students to develop an accessible computer game for children with ADHD. The game is designed to assess response time, inhibition control, and working memory by analyzing user interactions and logging data. This innovative approach aims to provide a more engaging and accessible alternative to traditional assessment methods.
 **Developed by Michal Leff-Cohen, Hila Buchbut, Shira Shalit, Eran Tzarum and Itamar Shpitzer**
 
 [רכיבים רשמיים](https://github.com/gamedev-ariel/timeskip/wiki)
