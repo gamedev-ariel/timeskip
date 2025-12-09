@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class CollisionHandler : MonoBehaviour
         // Check if player is out of camera view (viewport coordinates are normalized 0 to 1)
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
+            try { ExperimentLogger.Instance?.LogOutcome("River", "lose", reason: "out_of_bounds"); } catch (Exception) { }
             uiManager.ShowTryAgain();
             if (GameController.Instance != null)
             {
@@ -59,6 +61,7 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Fish"))
         {
             PlaySound(fishCollisionSound);
+            try { ExperimentLogger.Instance?.LogOutcome("River", "lose", reason: "fish_collision"); } catch (Exception) { }
             uiManager.ShowTryAgain();
             if (GameController.Instance != null)
             {
@@ -72,6 +75,7 @@ public class CollisionHandler : MonoBehaviour
         else if (collision.gameObject.CompareTag("RiverBankEnd"))
         {
             PlaySound(victorySound);
+            try { ExperimentLogger.Instance?.LogOutcome("River", "win", reason: "reached_end"); } catch (Exception) { }
             uiManager.ShowWellDone();
             if (GameController.Instance != null)
             {
@@ -94,6 +98,7 @@ public class CollisionHandler : MonoBehaviour
             uiManager.CollectScrew();
             if ((uiManager.screwsCollected == uiManager.totalScrews) && (PlaySound(victorySound) == true))
             {
+                try { ExperimentLogger.Instance?.LogOutcome("River", "win", reason: "collected_all_screws"); } catch (Exception) { }
                 uiManager.ShowWellDone();
                 if (GameController.Instance != null)
                 {

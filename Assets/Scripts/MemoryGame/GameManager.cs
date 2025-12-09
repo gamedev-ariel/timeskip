@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "minigame_start", reason: "start", livesLeft: lives); } catch (Exception) { }
         StartCoroutine(PlayLevel());
     }
 
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator PlayLevel()
     {
         Debug.Log($"🟡 Current level index: {currentLevel}");
+        try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "level_start", reason: $"level={currentLevel}", livesLeft: lives); } catch (Exception) { }
 
         // Make sure the question panel is hidden before showing the scene image
         uiManager.HideQuestionPanel();
@@ -54,17 +57,19 @@ public class GameManager : MonoBehaviour
     {
         if (isCorrect)
         {
-            
+            try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "correct", reason: $"level={currentLevel}", livesLeft: lives); } catch (Exception) { }
             currentLevel++;
 
             if (currentLevel == 4)
             {
+                try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "minigame_complete", reason: "reached_level_4", livesLeft: lives); } catch (Exception) { }
                 SceneManager.LoadScene("kitchen");
                 return;
             }
 
             if (currentLevel >= questionManager.GetTotalQuestions())
             {
+                try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "minigame_complete", reason: "all_levels_cleared", livesLeft: lives); } catch (Exception) { }
                 SceneManager.LoadScene("NextScene");
             }
             else
@@ -75,9 +80,11 @@ public class GameManager : MonoBehaviour
         else
         {
             lives--;
+            try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "incorrect", reason: $"level={currentLevel}", livesLeft: lives); } catch (Exception) { }
             uiManager.UpdateLives(lives);
             if (lives <= 0)
             {
+                try { ExperimentLogger.Instance?.LogOutcome("MemoryGame", "game_over", reason: "no_lives", livesLeft: 0); } catch (Exception) { }
                 uiManager.ShowGameOver();
             }
         }
