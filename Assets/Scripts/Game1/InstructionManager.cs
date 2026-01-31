@@ -12,9 +12,18 @@ public class InstructionManager : MonoBehaviour
 
     public bool isForest = false;
     public bool isRiver = false;
+    public bool isDwarf = false;
 
     private AudioSource audioSource;
     [SerializeField] private AudioClip soundtrack;
+    
+    [Header("Instruction Voice Prompt")]
+    [SerializeField] private AudioClip instructionVoiceClip; // single clip reused for dwarf/river/forest prompts
+    [SerializeField] [Range(0f, 1f)] private float instructionVoiceVolume = 1f;
+    
+    [Header("Start Prompt Voice (Any-Key/Jump)")]
+    [Tooltip("Audio clip to play when showing the initial start instructions (forest/river any-key, start jump)")]
+    [SerializeField] private AudioClip startPromptVoiceClip; // plays when initial instruction texts are shown
 
     private bool PlaySound(AudioClip clip)
     {
@@ -24,6 +33,24 @@ public class InstructionManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void PlayInstructionVoice()
+    {
+        if (instructionVoiceClip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(instructionVoiceClip, Mathf.Clamp01(instructionVoiceVolume));
+        }
+    }
+
+    private void PlayStartPromptVoice()
+    {
+        // Prefer the explicit startPromptVoiceClip; fallback to instructionVoiceClip if not assigned
+        var clip = startPromptVoiceClip != null ? startPromptVoiceClip : instructionVoiceClip;
+        if (clip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(clip, Mathf.Clamp01(instructionVoiceVolume));
+        }
     }
 
 
@@ -66,6 +93,8 @@ public class InstructionManager : MonoBehaviour
                 // Mark we have shown forest instructions
                 forestInstructionsShown = true;
                 currentState = InstructionState.waitingForAnyKey;
+                // Voice prompt for the forest any-key instruction
+                PlayStartPromptVoice();
             }
             else
             {
@@ -83,6 +112,8 @@ public class InstructionManager : MonoBehaviour
                 // Mark we have shown river instructions
                 riverInstructionsShown = true;
                 currentState = InstructionState.waitingForAnyKey;
+                // Voice prompt for the river any-key instruction
+                PlayStartPromptVoice();
             }
             else
             {
@@ -90,6 +121,10 @@ public class InstructionManager : MonoBehaviour
                 instructionText.text = "";
                 currentState = InstructionState.Completed;
             }
+        }
+        else if (isDwarf)
+        {
+            PlayStartPromptVoice();
         }
         else
         {
@@ -100,6 +135,8 @@ public class InstructionManager : MonoBehaviour
                 instructionText.text = "Use space key to jump.";
                 startInstructionsShown = true;
                 currentState = InstructionState.WaitingForJump;
+                // Voice prompt for the start jump instruction
+                PlayStartPromptVoice();
             }
             else
             {
@@ -179,6 +216,8 @@ public class InstructionManager : MonoBehaviour
             currentState = InstructionState.WaitingForEnter;
             instructionText.color = Color.black;
             instructionText.text = "Click enter to enter the house.";
+            // Voice prompt for Enter instruction (house)
+            PlayInstructionVoice();
         }
     }
 
@@ -199,6 +238,8 @@ public class InstructionManager : MonoBehaviour
         {
             currentState = InstructionState.WaitingForRock;
             instructionText.text = "Click enter to go to the river.";
+            // Voice prompt for Enter instruction (river)
+            PlayInstructionVoice();
         }
     }
 
@@ -218,6 +259,8 @@ public class InstructionManager : MonoBehaviour
         {
             currentState = InstructionState.WaitingForTerrain;
             instructionText.text = "Click enter to go to the forest.";
+            // Voice prompt for Enter instruction (forest)
+            PlayInstructionVoice();
         }
     }
 

@@ -7,6 +7,9 @@ public class CollisionHandler : MonoBehaviour
     public UIManager uiManager;
     private Camera mainCamera;
     private AudioSource audioSource;
+    
+    // Latch to ensure finish (win) is logged only once
+    private bool hasFinishedLogged = false;
 
     [SerializeField] private AudioClip fishCollisionSound;
     [SerializeField] private AudioClip victorySound;
@@ -46,7 +49,13 @@ public class CollisionHandler : MonoBehaviour
         // Check if player is out of camera view (viewport coordinates are normalized 0 to 1)
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
-            try { ExperimentLogger.Instance?.LogOutcome("River", "lose", reason: "out_of_bounds"); } catch (Exception) { }
+            try
+            {
+                bool isForest = false;
+                try { isForest = string.Equals(ExperimentLogger.Instance?.GetCurrentArea(), "forest", StringComparison.OrdinalIgnoreCase); } catch { }
+                ExperimentLogger.Instance?.LogOutcome(isForest ? "Forest" : "River", "lose", reason: "out_of_bounds");
+            }
+            catch (Exception) { }
             uiManager.ShowTryAgain();
             if (GameController.Instance != null)
             {
@@ -61,7 +70,25 @@ public class CollisionHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("Fish"))
         {
             PlaySound(fishCollisionSound);
-            try { ExperimentLogger.Instance?.LogOutcome("River", "lose", reason: "fish_collision"); } catch (Exception) { }
+            // Trial-level: log collision with piranha and finish lose once
+            try
+            {
+                // Log trial-level collision and finish in either area; logger remaps type to forest_* in Forest
+                ExperimentLogger.Instance?.LogRiverCollision("piranha", collision.GetContact(0).point);
+                if (!hasFinishedLogged)
+                {
+                    hasFinishedLogged = true;
+                    ExperimentLogger.Instance?.LogRiverFinish("lose");
+                }
+            }
+            catch (Exception) { }
+            try
+            {
+                bool isForest = false;
+                try { isForest = string.Equals(ExperimentLogger.Instance?.GetCurrentArea(), "forest", StringComparison.OrdinalIgnoreCase); } catch { }
+                ExperimentLogger.Instance?.LogOutcome(isForest ? "Forest" : "River", "lose", reason: "fish_collision");
+            }
+            catch (Exception) { }
             uiManager.ShowTryAgain();
             if (GameController.Instance != null)
             {
@@ -74,8 +101,25 @@ public class CollisionHandler : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("RiverBankEnd"))
         {
+            // Guard against multiple win logs caused by repeated collisions
+            if (hasFinishedLogged) return;
+            hasFinishedLogged = true;
+
             PlaySound(victorySound);
-            try { ExperimentLogger.Instance?.LogOutcome("River", "win", reason: "reached_end"); } catch (Exception) { }
+            // Trial-level finish (win)
+            try
+            {
+                // Log a trial-level finish in either area; logger remaps type name for Forest
+                ExperimentLogger.Instance?.LogRiverFinish("win");
+            }
+            catch (Exception) { }
+            try
+            {
+                bool isForest = false;
+                try { isForest = string.Equals(ExperimentLogger.Instance?.GetCurrentArea(), "forest", StringComparison.OrdinalIgnoreCase); } catch { }
+                ExperimentLogger.Instance?.LogOutcome(isForest ? "Forest" : "River", "win", reason: "reached_end");
+            }
+            catch (Exception) { }
             uiManager.ShowWellDone();
             if (GameController.Instance != null)
             {
@@ -89,16 +133,52 @@ public class CollisionHandler : MonoBehaviour
         else if (collision.gameObject.CompareTag("Mushroom"))
         {
             PlaySound(jumpSound);
-            GetComponent<PlayerMovementRiver>().Jump();
+            // Trial-level: landing on a rock is a successful jump land
+            try
+            {
+                var rock = collision.gameObject.GetComponent<RockId>();
+                string toRockId = (rock != null && !string.IsNullOrEmpty(rock.rockId)) ? rock.rockId : collision.gameObject.name;
+                var pmrLocal = GetComponent<PlayerMovementRiver>();
+                string jumpId = pmrLocal != null ? pmrLocal.lastJumpId : null;
+                // Log landing in either area; logger remaps type name for Forest
+                ExperimentLogger.Instance?.LogRiverJumpLand(jumpId, toRockId, true);
+            }
+            catch (Exception) { }
+            var pmr = GetComponent<PlayerMovementRiver>();
+            if (pmr != null)
+            {
+                var rock = collision.gameObject.GetComponent<RockId>();
+                string toRockId2 = (rock != null && !string.IsNullOrEmpty(rock.rockId)) ? rock.rockId : collision.gameObject.name;
+                pmr.lastRockId = toRockId2;
+                pmr.currentRockId = toRockId2;
+                pmr.Jump(); // start next jump; Jump() will emit jump_start
+            }
+            else
+            {
+                GetComponent<PlayerMovementRiver>().Jump();
+            }
         }
         else if (collision.gameObject.CompareTag("Screw"))
         {
             PlaySound(screwCollectSound);
+            // Trial-level forest resolve: collected
+            try
+            {
+                // Prevent double-collect by disabling collider immediately
+                var col = collision.collider != null ? collision.collider : collision.gameObject.GetComponent<Collider2D>();
+                if (col != null) col.enabled = false;
+                var tracker = collision.gameObject.GetComponent<ForestItemTrack>();
+                if (tracker != null)
+                {
+                    tracker.Resolve("collected", "player");
+                }
+            }
+            catch (Exception) { }
             Destroy(collision.gameObject);
             uiManager.CollectScrew();
             if ((uiManager.screwsCollected == uiManager.totalScrews) && (PlaySound(victorySound) == true))
             {
-                try { ExperimentLogger.Instance?.LogOutcome("River", "win", reason: "collected_all_screws"); } catch (Exception) { }
+                try { ExperimentLogger.Instance?.LogOutcome("Forest", "win", reason: "collected_all_screws"); } catch (Exception) { }
                 uiManager.ShowWellDone();
                 if (GameController.Instance != null)
                 {
@@ -108,6 +188,33 @@ public class CollisionHandler : MonoBehaviour
                 {
                     Debug.LogError("GameController instance not found.");
                 }
+            }
+        }
+        else if (collision.gameObject.CompareTag("Water"))
+        {
+            // Trial-level: collision with water
+            try
+            {
+                // Log trial-level water collision in either area; logger remaps type for Forest
+                ExperimentLogger.Instance?.LogRiverCollision("water", collision.GetContact(0).point);
+                if (!hasFinishedLogged)
+                {
+                    hasFinishedLogged = true;
+                    ExperimentLogger.Instance?.LogRiverFinish("lose");
+                }
+            }
+            catch (Exception) { }
+            try
+            {
+                bool isForest = false;
+                try { isForest = string.Equals(ExperimentLogger.Instance?.GetCurrentArea(), "forest", StringComparison.OrdinalIgnoreCase); } catch { }
+                ExperimentLogger.Instance?.LogOutcome(isForest ? "Forest" : "River", "lose", reason: "water_collision");
+            }
+            catch (Exception) { }
+            uiManager.ShowTryAgain();
+            if (GameController.Instance != null)
+            {
+                GameController.Instance.EndGame();
             }
         }
     }

@@ -7,63 +7,13 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-[Serializable]
-public class ClickEvent
-{
-    public string time;
-    public float timeSinceStart;
-    public string scene;
-    public string area;
-    public string target;
-    public string inputType;
-    public float x;
-    public float y;
-}
+// NOTE: Data model classes (ClickEvent, OutcomeEvent, KeyEvent, SceneEvent, MiniGameEvent, MemoryClickEvent,
+// MemoryLevelResult, MinigameSection, Forest* events, River* events, DwarfTrial* events, SceneSection, SessionData)
+// were moved to Assets/Scripts/ExperimentLogger/ExperimentDataModels.cs to reduce the size of this file.
 
-[Serializable]
-public class OutcomeEvent
-{
-    public string time;
-    public float timeSinceStart;
-    public string scene;
-    public string area;
-    public string outcome;
-    public string reason;
-    public int livesLeft;
-}
-
-[Serializable]
-public class KeyEvent
-{
-    public string time;
-    public float timeSinceStart;
-    public string scene;
-    public string key;           // e.g., "Space", "A", "LeftArrow"
-}
-
-[Serializable]
-public class SceneEvent
-{
-    public string time;
-    public float timeSinceStart;
-    public string scene;
-    public string eventType; // loaded/unloaded/changed
-}
-
-[Serializable]
-public class SessionData
-{
-    public string sessionId;
-    public string playerName;
-    public string startTime;
-    public string endTime;
-    public List<OutcomeEvent> outcomes = new List<OutcomeEvent>();
-    public List<KeyEvent> keys = new List<KeyEvent>();
-    public List<SceneEvent> scenes = new List<SceneEvent>();
-}
-
-public class ExperimentLogger : MonoBehaviour
+public partial class ExperimentLogger : MonoBehaviour
 {
     public static ExperimentLogger Instance { get; private set; }
 
@@ -75,12 +25,63 @@ public class ExperimentLogger : MonoBehaviour
     [SerializeField] private string supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wZ3N3YWV4dWhmaGlueGR4cm14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzMDc4MjksImV4cCI6MjA4MDg4MzgyOX0.x_scg6fi-dbJ2pKckNXkTUe7j3z2mnsqU1Fr2Emzn24";
     [SerializeField] private string supabaseTable = "session_logs";
 
+    [Header("ML Model API Settings")]
+    [Tooltip("HTTP endpoint for the ADHD model /predict API. Example: https://<space-subdomain>.hf.space/predict")]
+    [SerializeField] private string modelApiUrl = "https://ithamarspitz-adhd-noise-classifier.hf.space/predict";
+    [Tooltip("Optional Bearer token for calling via the HF Router. Leave empty for direct subdomain calls.")]
+    [SerializeField] private string modelApiBearerToken = "";
+    [Tooltip("If true, will send the computed feature vector to the model API after attempting Supabase save.")]
+    [SerializeField] private bool enableModelApiCall = true;
+
+    [Header("Prediction Display")]
+    [SerializeField] private bool showPredictionOverlay = true;
+    [SerializeField] private float predictionShowSeconds = 5f;
+    [SerializeField] private int predictionFontSize = 48;
+    [SerializeField] private Color predictionTextColor = default;
+    [SerializeField] private Color predictionBackdropColor = default;
+
     private SessionData session;
     private float sessionStartTime;
+    private float currentSceneStartTime;
     private Vector3 lastMousePos;
+    // Dwarf/minigame tracking
+    private string currentMinigameName;
+    private float currentMinigameStartTime;
+    private string currentMinigameRunId; // unique per minigame run
+    // Per-run final outcome guard
+    private bool hasFinishedRun = false; // true after a final outcome is logged for the active run
+    private readonly System.Collections.Generic.HashSet<string> finishedRunIds = new System.Collections.Generic.HashSet<string>();
+
+    // Scene visit tracking
+    private string currentSceneVisitId; // GUID for the active visit
+    private string currentSceneNameGrouped; // grouped scene name of the active visit
+    private bool hasOpenSceneVisit;
+
+    // Area tracking inside a Unity scene (e.g., forest/river within the same scene)
+    private string currentArea; // "forest" | "river" | grouped scene name by default
+    private float currentAreaStartTime;
+    // Guards for de-duplicating certain river logs
+    private int _lastRiverLandFrame = -1;
+    private string _lastRiverLandJumpId;
 
     // limit key scan cost by caching enum values
     private static KeyCode[] allKeyCodes;
+    
+    // prevent duplicate saves and allow waiting for a single flush
+    private bool saveStarted = false;
+    // Track key press start times to compute held durations
+    private readonly Dictionary<KeyCode, float> _keyPressStartTimes = new Dictionary<KeyCode, float>();
+    // Short-term debounce to prevent accidental duplicate non-minigame outcomes
+    private readonly Dictionary<string, float> _nonMinigameOutcomeDebounce = new Dictionary<string, float>();
+    // 15s rate limiter for non-minigame final outcomes (per area|outcome|reason)
+    private const float NonMinigameOutcomeMinInterval = 15f;
+    private readonly Dictionary<string, float> _nonMinigameOutcomeLastEmit = new Dictionary<string, float>();
+
+    // Prediction overlay runtime refs
+    private Canvas _predCanvas;
+    private Text _predText;
+    private Image _predBackdrop;
+    private Coroutine _predHideRoutine;
 
     private void Awake()
     {
@@ -105,6 +106,12 @@ public class ExperimentLogger : MonoBehaviour
         {
             supabaseTable = "session_logs";
         }
+        // Load Hugging Face token from Scripts/hf_token[.txt] if present
+        TryLoadHfTokenFromFile();
+        // Default colors if not assigned in Inspector
+        if (predictionTextColor == default) predictionTextColor = Color.white;
+        if (predictionBackdropColor == default) predictionBackdropColor = new Color(0, 0, 0, 0.35f);
+        // Model API: keep defaults unless explicitly changed; no-op if URL is empty or disabled.
         StartNewSession();
     }
 
@@ -135,7 +142,55 @@ public class ExperimentLogger : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
-        LogSceneEvent("loaded");
+        // Initialize current scene start time and start the first visit for the active scene
+        var initialScene = GetGroupedSceneName(SceneManager.GetActiveScene().name);
+        EnsureSceneSection(initialScene);
+        StartSceneVisit(initialScene, null);
+
+        // Initialize area to the grouped scene name by default
+        currentArea = initialScene;
+        currentAreaStartTime = Time.time;
+    }
+
+    // Load HF token from Assets/Scripts/hf_token or hf_token.txt (preferred),
+    // falling back to HF_TOKEN environment variable. Does not log the token value.
+    private void TryLoadHfTokenFromFile()
+    {
+        try
+        {
+            string scriptsDir = Path.Combine(Application.dataPath, "Scripts");
+            string[] candidates = new string[]
+            {
+                Path.Combine(scriptsDir, "hf_token"),
+                Path.Combine(scriptsDir, "hf_token.txt")
+            };
+
+            foreach (var path in candidates)
+            {
+                if (File.Exists(path))
+                {
+                    string token = File.ReadAllText(path, Encoding.UTF8).Trim();
+                    if (!string.IsNullOrWhiteSpace(token))
+                    {
+                        modelApiBearerToken = token;
+                        Debug.Log("[ExperimentLogger] Loaded Hugging Face token from Assets/Scripts/hf_token file.");
+                        return;
+                    }
+                }
+            }
+
+            // Fallback: environment variable
+            string envToken = Environment.GetEnvironmentVariable("HF_TOKEN");
+            if (!string.IsNullOrWhiteSpace(envToken))
+            {
+                modelApiBearerToken = envToken.Trim();
+                Debug.Log("[ExperimentLogger] Loaded Hugging Face token from HF_TOKEN environment variable.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning($"[ExperimentLogger] Failed loading HF token: {ex.Message}");
+        }
     }
 
     public void SetPlayerName(string name, bool applyToCurrentSession = true)
@@ -147,234 +202,269 @@ public class ExperimentLogger : MonoBehaviour
         }
     }
 
-    public void LogClick(string area, string target, Vector2 position, string inputType = "mouseLeft")
+    // ===== Prediction overlay UI =====
+    private void EnsurePredictionUi()
     {
-        // Click logging removed per requirements. Keep method for API compatibility.
-        return;
+        if (_predCanvas != null) return;
+
+        // Root canvas
+        var goCanvas = new GameObject("PredictionCanvas");
+        DontDestroyOnLoad(goCanvas);
+        _predCanvas = goCanvas.AddComponent<Canvas>();
+        _predCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        _predCanvas.sortingOrder = 5000; // on top
+        goCanvas.AddComponent<CanvasScaler>().uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        goCanvas.AddComponent<GraphicRaycaster>();
+
+        // Backdrop panel stretches full screen
+        var goPanel = new GameObject("Backdrop");
+        goPanel.transform.SetParent(goCanvas.transform, false);
+        _predBackdrop = goPanel.AddComponent<Image>();
+        _predBackdrop.color = predictionBackdropColor;
+        var rtPanel = goPanel.GetComponent<RectTransform>();
+        rtPanel.anchorMin = Vector2.zero;
+        rtPanel.anchorMax = Vector2.one;
+        rtPanel.offsetMin = Vector2.zero;
+        rtPanel.offsetMax = Vector2.zero;
+
+        // Centered text
+        var goText = new GameObject("PredictionText");
+        goText.transform.SetParent(goPanel.transform, false);
+        _predText = goText.AddComponent<Text>();
+        _predText.alignment = TextAnchor.MiddleCenter;
+        _predText.fontSize = predictionFontSize;
+        _predText.color = predictionTextColor;
+        _predText.horizontalOverflow = HorizontalWrapMode.Wrap;
+        _predText.verticalOverflow = VerticalWrapMode.Truncate;
+        _predText.supportRichText = false;
+        // Built-in default font
+        _predText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+
+        var rtText = goText.GetComponent<RectTransform>();
+        rtText.anchorMin = new Vector2(0.1f, 0.35f);
+        rtText.anchorMax = new Vector2(0.9f, 0.65f);
+        rtText.offsetMin = Vector2.zero;
+        rtText.offsetMax = Vector2.zero;
+
+        goCanvas.SetActive(false);
     }
 
-    public void LogOutcome(string area, string outcome, string reason = "", int livesLeft = 0)
+    private void HidePredictionUi()
+    {
+        if (_predCanvas != null)
+        {
+            _predCanvas.gameObject.SetActive(false);
+        }
+    }
+
+    private IEnumerator HidePredictionRoutine(float seconds)
+    {
+        float t = 0f;
+        while (t < seconds)
+        {
+            if (Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2) || Input.touchCount > 0)
+                break;
+            t += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        HidePredictionUi();
+        _predHideRoutine = null;
+    }
+
+    private void ShowPredictionOnScreen(string text)
+    {
+        if (!showPredictionOverlay) return;
+        if (string.IsNullOrWhiteSpace(text)) return;
+
+        EnsurePredictionUi();
+        if (_predText != null)
+        {
+            _predText.text = text;
+            _predText.fontSize = predictionFontSize;
+            _predText.color = predictionTextColor;
+        }
+        if (_predBackdrop != null)
+        {
+            _predBackdrop.color = predictionBackdropColor;
+        }
+
+        if (_predCanvas != null)
+        {
+            _predCanvas.gameObject.SetActive(true);
+        }
+
+        if (_predHideRoutine != null) StopCoroutine(_predHideRoutine);
+        _predHideRoutine = StartCoroutine(HidePredictionRoutine(Mathf.Max(0.5f, predictionShowSeconds)));
+    }
+
+    // Global click logging is disabled per requirement. Only MemoryGame clicks are tracked via dedicated API below.
+    public void LogClick(string area, string target, Vector2 position, string inputType = "mouseLeft") { /* no-op */ }
+
+    public void SetArea(string area)
+    {
+        // Normalize and apply only known areas; fallback to grouped scene name
+        string grouped = GetGroupedSceneName(SceneManager.GetActiveScene().name);
+        string norm = string.IsNullOrWhiteSpace(area) ? grouped : area.Trim().ToLowerInvariant();
+        if (norm != "forest" && norm != "river")
+        {
+            norm = grouped;
+        }
+        if (!string.Equals(currentArea, norm, StringComparison.Ordinal))
+        {
+            currentArea = norm;
+            currentAreaStartTime = Time.time;
+        }
+    }
+
+    public string GetCurrentArea()
+    {
+        return string.IsNullOrEmpty(currentArea) ? GetGroupedSceneName(SceneManager.GetActiveScene().name) : currentArea;
+    }
+
+    public void LogOutcome(string area, string outcome, string reason = "", int livesLeft = 0, string minigame = null)
     {
         if (session == null) return;
+
+        // Determine minigame context and minigame-relative time
+        string mg = GetEffectiveMinigameName(minigame);
+        // Compute relative time if any minigame is currently active (start time captured once when playable)
+        float tMinigame = (!string.IsNullOrEmpty(currentMinigameName) && currentMinigameStartTime > 0f)
+            ? (Time.time - currentMinigameStartTime)
+            : 0f;
+        string sceneName = GetGroupedSceneName(SceneManager.GetActiveScene().name);
+
+        // Final-outcome guard: prevent duplicate final outcomes within the same run
+        bool isFinal = false;
+        if (!string.IsNullOrEmpty(outcome))
+        {
+            string o = outcome.ToLowerInvariant();
+            isFinal = (o == "win" || o == "lose" || o == "fail" || o.StartsWith("minigame_final_"));
+        }
+        if (isFinal)
+        {
+            // If we are inside an active minigame run, use run id to gate duplicates
+            if (!string.IsNullOrEmpty(currentMinigameRunId))
+            {
+                if (finishedRunIds.Contains(currentMinigameRunId))
+                {
+                    return; // already finished for this run
+                }
+            }
+            else
+            {
+                // Non-minigame (e.g., forest/river) — allow multiple finals across runs.
+                // Apply a 15s rate limit per (area|outcome|reason) and a tiny debounce to avoid bursts.
+                try
+                {
+                    string areaKey = (GetCurrentArea() ?? string.Empty).ToLowerInvariant();
+                    string outcomeKey = (outcome ?? string.Empty).ToLowerInvariant();
+                    string reasonKey = (reason ?? string.Empty).ToLowerInvariant();
+                    string throttleKey = areaKey + "|" + outcomeKey + "|" + reasonKey;
+
+                    // 15s rate limit
+                    if (_nonMinigameOutcomeLastEmit.TryGetValue(throttleKey, out var lastFinalT))
+                    {
+                        if (Time.time - lastFinalT < NonMinigameOutcomeMinInterval)
+                        {
+                            return; // suppress if within 15s window
+                        }
+                    }
+
+                    // Tiny debounce (250ms) as safety for double-callbacks
+                    string debounceKey = throttleKey; // reuse same key
+                    if (_nonMinigameOutcomeDebounce.TryGetValue(debounceKey, out var lastT))
+                    {
+                        if (Time.time - lastT < 0.25f)
+                        {
+                            return; // suppress duplicate within 250ms window
+                        }
+                    }
+                    _nonMinigameOutcomeDebounce[debounceKey] = Time.time;
+                    _nonMinigameOutcomeLastEmit[throttleKey] = Time.time;
+                }
+                catch { }
+            }
+        }
 
         var e = new OutcomeEvent
         {
             time = DateTime.UtcNow.ToString("o"),
-            timeSinceStart = Time.time - sessionStartTime,
-            scene = SceneManager.GetActiveScene().name,
+            timeSinceStart = R2(Time.time - sessionStartTime),
+            timeSinceSceneStart = R2(Time.time - currentSceneStartTime),
+            timeSinceMinigameStart = R2(tMinigame),
+            // Use current area label instead of Unity scene when available
+            scene = string.IsNullOrEmpty(currentArea) ? sceneName : currentArea,
             area = area,
             outcome = outcome,
-            reason = reason,
-            livesLeft = livesLeft
+            reason = reason
         };
-        session.outcomes.Add(e);
-    }
-
-    private void LogSceneEvent(string type)
-    {
-        if (session == null) return;
-        session.scenes.Add(new SceneEvent
-        {
-            time = DateTime.UtcNow.ToString("o"),
-            timeSinceStart = Time.time - sessionStartTime,
-            scene = SceneManager.GetActiveScene().name,
-            eventType = type
-        });
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        LogSceneEvent("loaded");
-    }
-
-    private void OnSceneUnloaded(Scene scene)
-    {
-        LogSceneEvent("unloaded");
-    }
-
-    private void OnApplicationQuit()
-    {
-        EndAndSaveSession();
-    }
-
-    private void OnDestroy()
-    {
-        if (Instance == this)
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-            SceneManager.sceneUnloaded -= OnSceneUnloaded;
-        }
-    }
-
-    private void Update()
-    {
-        // Key typing logging
-        if (Input.anyKeyDown)
-        {
-            // detect which keycode was pressed
-            string pressedKey = null;
-            if (allKeyCodes == null)
-            {
-                allKeyCodes = (KeyCode[])Enum.GetValues(typeof(KeyCode));
-            }
-            for (int i = 0; i < allKeyCodes.Length; i++)
-            {
-                var kc = allKeyCodes[i];
-                // Skip None to reduce overhead
-                if (kc == KeyCode.None) continue;
-                if (Input.GetKeyDown(kc))
-                {
-                    pressedKey = kc.ToString();
-                    break;
-                }
-            }
-
-            var ke = new KeyEvent
-            {
-                time = DateTime.UtcNow.ToString("o"),
-                timeSinceStart = Time.time - sessionStartTime,
-                scene = SceneManager.GetActiveScene().name,
-                key = pressedKey ?? "Unknown"
-            };
-            session.keys.Add(ke);
-        }
-
-    }
-
-    private void AutoLogClick(string inputType)
-    {
+        // Attach player position except in dwarf/memory grouped scenes
         try
         {
-            Vector3 mousePos = Input.mousePosition;
-            var targetName = "none";
-            var area = "world";
-
-            // First try UI raycast
-            if (EventSystem.current != null)
+            if (ShouldAttachPlayerPos() && TryGetPlayerPos(out var p))
             {
-                var pointerData = new PointerEventData(EventSystem.current) { position = mousePos };
-                var results = new List<RaycastResult>();
-                EventSystem.current.RaycastAll(pointerData, results);
-                if (results.Count > 0)
-                {
-                    targetName = results[0].gameObject.name;
-                    area = "ui";
-                }
+                e.playerPos = p;
             }
-
-            // Then try 2D physics
-            if (area == "world")
-            {
-                Vector3 worldPoint = Camera.main != null ? Camera.main.ScreenToWorldPoint(mousePos) : new Vector3(mousePos.x, mousePos.y, 0);
-                var hit2D = Physics2D.OverlapPoint(new Vector2(worldPoint.x, worldPoint.y));
-                if (hit2D != null)
-                {
-                    targetName = hit2D.gameObject.name;
-                }
-                else
-                {
-                    // Try 3D raycast
-                    if (Camera.main != null)
-                    {
-                        Ray ray = Camera.main.ScreenPointToRay(mousePos);
-                        if (Physics.Raycast(ray, out RaycastHit hit))
-                        {
-                            targetName = hit.collider.gameObject.name;
-                        }
-                    }
-                }
-            }
-
-            LogClick(area, targetName, mousePos, inputType);
         }
-        catch (Exception ex)
+        catch { }
+        // Store under the area section for forest/river; otherwise store under grouped scene
+        string sectionSceneName = sceneName;
+        if (!string.IsNullOrEmpty(area))
         {
-            Debug.LogWarning($"[ExperimentLogger] AutoLogClick failed: {ex.Message}");
+            string a = area.Trim().ToLowerInvariant();
+            if (a == "forest" || a == "river")
+            {
+                sectionSceneName = GetCurrentArea();
+            }
+        }
+        var section = EnsureSceneSection(sectionSceneName);
+        section.outcomes.Add(e);
+        if (!string.IsNullOrEmpty(mg))
+        {
+            EnsureMinigameSection(section, mg).outcomes.Add(e);
+        }
+
+        // Mark run as finished only for active minigame runs (Dwarf/Memory)
+        if (isFinal && !string.IsNullOrEmpty(currentMinigameRunId))
+        {
+            hasFinishedRun = true;
+            finishedRunIds.Add(currentMinigameRunId);
         }
     }
 
-    public void EndAndSaveSession()
+    // Convenience helpers for common gameplay results
+    public void LogForestWin()
     {
-        if (session == null) return;
-        session.endTime = DateTime.UtcNow.ToString("o");
-        StartCoroutine(SendSessionToSupabase());
+        LogOutcome("forest", "win", "collected_5_screws");
     }
 
-    private IEnumerator SendSessionToSupabase()
+    public void LogForestFailure(string reason = "touched_berry")
     {
-        // Treat placeholder values as not configured to avoid noisy web errors
-        bool notConfigured = string.IsNullOrWhiteSpace(supabaseUrl)
-                             || string.IsNullOrWhiteSpace(supabaseAnonKey)
-                             || string.IsNullOrWhiteSpace(supabaseTable)
-                             || supabaseUrl.Contains("YOUR-PROJECT-REF")
-                             || supabaseAnonKey.Contains("YOUR-ANON");
-
-        if (notConfigured)
-        {
-            Debug.LogWarning("[ExperimentLogger] Supabase not configured. Saving session locally instead.");
-            yield return SaveSessionLocally();
-            yield break;
-        }
-
-        var row = new SupabaseSessionRow
-        {
-            player_name = playerName,
-            session_id = session.sessionId,
-            session_json = session
-        };
-
-        string jsonBody = JsonUtility.ToJson(row);
-
-        string url = $"{supabaseUrl}/rest/v1/{supabaseTable}";
-
-        using (UnityWebRequest req = new UnityWebRequest(url, "POST"))
-        {
-            byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonBody);
-            req.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            req.downloadHandler = new DownloadHandlerBuffer();
-
-            req.SetRequestHeader("Content-Type", "application/json");
-            req.SetRequestHeader("apikey", supabaseAnonKey);
-            req.SetRequestHeader("Authorization", "Bearer " + supabaseAnonKey);
-            req.SetRequestHeader("Prefer", "return=minimal");
-
-            yield return req.SendWebRequest();
-
-            if (req.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogError($"[ExperimentLogger] Supabase error: {req.responseCode} {req.error}\n{req.downloadHandler.text}");
-                yield return SaveSessionLocally();
-            }
-            else
-            {
-                Debug.Log("[ExperimentLogger] Session successfully saved to Supabase.");
-            }
-        }
+        LogOutcome("forest", "fail", reason);
     }
 
-    private IEnumerator SaveSessionLocally()
+    public void LogRiverFailure(string reason = "touched_fish")
     {
+        // Route by current in-scene area: if we are actually in Forest (shared components), log as Forest
+        string area = "River";
         try
         {
-            string dir = Path.Combine(Application.persistentDataPath, "session_logs");
-            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
-            string path = Path.Combine(dir, $"{session.sessionId}.json");
-            string json = JsonUtility.ToJson(session, true);
-            File.WriteAllText(path, json, Encoding.UTF8);
-            Debug.Log($"[ExperimentLogger] Session saved locally at {path}");
+            string cur = GetCurrentArea();
+            if (string.Equals(cur, "forest", StringComparison.OrdinalIgnoreCase))
+            {
+                area = "Forest";
+            }
         }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[ExperimentLogger] Failed to save locally: {ex.Message}");
-        }
-        yield break;
+        catch { }
+        LogOutcome(area, "fail", reason);
     }
 
-    [Serializable]
-    public class SupabaseSessionRow
+    public void LogDwarfResult(bool win, string reason = "")
     {
-        public string player_name;
-        public string session_id;
-        public SessionData session_json;
+        // Preserve compatibility: include current minigame if any
+        LogOutcome("dwarf", win ? "win" : "fail", reason, 0, currentMinigameName);
     }
+
+    // Removed from core: Scene management, Input logging, Minigame-specific logging, and
+    // persistence/export methods were moved into partial class files under Assets/Scripts/ExperimentLogger/.
 }

@@ -2661,6 +2661,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389924488}
   m_CullTransparentMesh: 1
+--- !u!1 &1394718550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394718551}
+  - component: {fileID: 1394718552}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1394718551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394718550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.35062587, y: -1.9196979, z: 0.08801373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394718552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394718550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c404c984aa90404b9486049b4174361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isForest: 0
+  isRiver: 0
+  isDwarf: 1
+  soundtrack: {fileID: 0}
+  instructionVoiceClip: {fileID: 0}
+  instructionVoiceVolume: 1
+  startPromptVoiceClip: {fileID: 8300000, guid: de53a29db7374374da5ce6f372243984, type: 3}
 --- !u!1 &1616316063
 GameObject:
   m_ObjectHideFlags: 0
@@ -4379,3 +4430,4 @@ SceneRoots:
   - {fileID: 708053698}
   - {fileID: 713381782}
   - {fileID: 1681385036}
+  - {fileID: 1394718551}

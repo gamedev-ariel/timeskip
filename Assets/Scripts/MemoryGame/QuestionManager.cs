@@ -66,6 +66,7 @@ public class QuestionManager : MonoBehaviour
 
     public void AnswerSelected(int index)
     {
-        GameManager.Instance.CheckAnswer(index == correctAnswerIndex);
+        // Forward the selected index; GameManager will compute correctness and log detailed response
+        GameManager.Instance.CheckAnswer(index);
     }
 }

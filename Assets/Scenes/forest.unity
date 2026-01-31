@@ -2827,6 +2827,9 @@ MonoBehaviour:
   isForest: 1
   isRiver: 0
   soundtrack: {fileID: 8300000, guid: b23e5430dc9bd724a887a2161edd860b, type: 3}
+  instructionVoiceClip: {fileID: 0}
+  instructionVoiceVolume: 1
+  startPromptVoiceClip: {fileID: 8300000, guid: 21f1fa4da595d194596fc912f5d6b154, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

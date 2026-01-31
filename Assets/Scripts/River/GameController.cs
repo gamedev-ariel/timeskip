@@ -140,6 +140,8 @@ public class GameController : MonoBehaviour
         currentScrollSpeed = minScrollSpeed;
         uiManager.HideCountdown();
 
+        // River is not a minigame: do not mark minigame start
+
         // Start background spawning
         if (backgroundManager != null)
         {
@@ -164,6 +166,8 @@ public class GameController : MonoBehaviour
     {
         if (gameEnded) return; // Prevent multiple calls
         gameEnded = true;
+
+        // River is not a minigame: do not mark minigame end
 
         // Stop spawning fish
         FishSpawner[] fishSpawners = FindObjectsOfType<FishSpawner>();
