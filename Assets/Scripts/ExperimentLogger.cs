@@ -236,6 +236,10 @@ public partial class ExperimentLogger : MonoBehaviour
         _predText.color = predictionTextColor;
         _predText.horizontalOverflow = HorizontalWrapMode.Wrap;
         _predText.verticalOverflow = VerticalWrapMode.Truncate;
+        // Ensure the text always fits within the panel
+        _predText.resizeTextForBestFit = true;
+        _predText.resizeTextMinSize = Mathf.Max(12, Mathf.RoundToInt(predictionFontSize * 0.4f));
+        _predText.resizeTextMaxSize = Mathf.Max(predictionFontSize, 18);
         _predText.supportRichText = false;
         // Built-in default font
         _predText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -282,6 +286,9 @@ public partial class ExperimentLogger : MonoBehaviour
             _predText.text = text;
             _predText.fontSize = predictionFontSize;
             _predText.color = predictionTextColor;
+            _predText.resizeTextForBestFit = true;
+            _predText.resizeTextMinSize = Mathf.Max(12, Mathf.RoundToInt(predictionFontSize * 0.4f));
+            _predText.resizeTextMaxSize = Mathf.Max(predictionFontSize, 18);
         }
         if (_predBackdrop != null)
         {

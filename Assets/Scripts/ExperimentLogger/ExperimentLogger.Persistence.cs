@@ -267,12 +267,74 @@ public partial class ExperimentLogger
         }
     }
 
+    // Dedicated parser for our model API schema:
+    // {"prediction":[0|1], "probabilities":[[p0, p1]]}
+    // Returns two-line UI text: "(No) ADHD detected.\nThe probability is: <p>"
+    private string TryParseModelApiV1(string json)
+    {
+        if (string.IsNullOrWhiteSpace(json)) return null;
+
+        try
+        {
+            // Find prediction array first element
+            int pred = -1;
+            {
+                var m = System.Text.RegularExpressions.Regex.Match(
+                    json,
+                    @"""prediction""\s*:\s*\[\s*(?<pred>[-+]?[0-9]+)\s*\]",
+                    System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                if (m.Success)
+                {
+                    int.TryParse(m.Groups["pred"].Value, out pred);
+                }
+            }
+
+            if (pred != 0 && pred != 1)
+            {
+                return null; // not our shape
+            }
+
+            // Find probabilities first row two values
+            double p0 = double.NaN, p1 = double.NaN;
+            {
+                var m = System.Text.RegularExpressions.Regex.Match(
+                    json,
+                    @"""probabilities""\s*:\s*\[\s*\[\s*(?<p0>[-+]?(?:[0-9]*\.?[0-9]+)(?:[eE][-+]?[0-9]+)?)\s*,\s*(?<p1>[-+]?(?:[0-9]*\.?[0-9]+)(?:[eE][-+]?[0-9]+)?)\s*\]",
+                    System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                if (m.Success)
+                {
+                    double.TryParse(m.Groups["p0"].Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out p0);
+                    double.TryParse(m.Groups["p1"].Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out p1);
+                }
+            }
+
+            if (double.IsNaN(p0) || double.IsNaN(p1))
+            {
+                return null; // missing probabilities
+            }
+
+            double p = (pred == 0) ? p0 : p1;
+            string label = (pred == 0) ? "No ADHD detected." : "ADHD detected.";
+            string probText = p.ToString("0.###", System.Globalization.CultureInfo.InvariantCulture);
+
+            return label + "\n" + "the probability is: " + probText;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
     // Heuristic parser to extract a displayable prediction from various JSON response shapes
     private string ExtractPredictionText(string resp)
     {
         if (string.IsNullOrWhiteSpace(resp)) return null;
 
         string trimmed = resp.Trim();
+
+        // First, try our known schema used by the deployed model API
+        string v1 = TryParseModelApiV1(trimmed);
+        if (!string.IsNullOrEmpty(v1)) return v1;
 
         // If plain number or string (not JSON), just show trimmed
         if (!(trimmed.StartsWith("{") || trimmed.StartsWith("[")))
